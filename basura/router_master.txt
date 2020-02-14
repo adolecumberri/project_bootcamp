@@ -1,0 +1,23 @@
+
+/*carga de la ruta master*/
+
+const master_router = require("./routes/master_tables/router_master_tables");
+
+/*Uso de routas aplicasdas al app*/
+
+app.use('/gender', master_router("gender"));
+app.use('/country', master_router("country"));
+app.use('/state', master_router("state"));
+app.use('/profile', master_router("profile"));
+app.use('/type', master_router("type"));
+app.use('/social_media', master_router("social_media"));
+
+
+
+
+ sessionStorage.setItem('proyect_token', token);
+          solution = {
+            id: user.id,
+            name: user.name,
+            header: user.header,
+            isAdmin: user.isAdmin

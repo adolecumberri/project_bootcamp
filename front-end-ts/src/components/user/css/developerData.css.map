@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,KAAK,CAAA,AAAA,IAAC,CAAD,MAAC,AAAA,EAAa;EACf,eAAe,EAAE,SAAS;CAM7B;;AAPD,AAGI,KAHC,CAAA,AAAA,IAAC,CAAD,MAAC,AAAA,CAGD,2BAA2B,CAAC;EACzB,kBAAkB,EAAE,IAAI;EACxB,MAAM,EAAE,CAAC;CACZ",
+    "sources": [
+        "developerData.scss"
+    ],
+    "names": [],
+    "file": "developerData.css"
+}

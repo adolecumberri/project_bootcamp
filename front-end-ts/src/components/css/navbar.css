@@ -1,0 +1,46 @@
+@import url(c:\Users\Adolfo\Desktop\Bootcamp\TRABAJOS\proyecto_bootcamp\front-end-ts\src\components\css\navbar-767.css);
+.my-resp {
+  width: 58px;
+  height: 58px;
+  display: none;
+  border-radius: 10%;
+  margin: 0px;
+}
+
+.my-notResp {
+  margin-left: 30px;
+  display: inline-block;
+}
+
+.my-notResp img {
+  width: 58px;
+  height: 58px;
+  margin-right: 30px;
+}
+
+.my-navbar {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.my-navbarResp {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.my-navbarResp ul {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.showed {
+  display: -webkit-inline-box !important;
+  display: -ms-inline-flexbox !important;
+  display: inline-flex !important;
+}
+
+.hidden {
+  display: none !important;
+}
+/*# sourceMappingURL=navbar.css.map */

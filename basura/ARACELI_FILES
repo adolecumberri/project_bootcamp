@@ -1,0 +1,67 @@
+import React from "react";
+import { IStore } from "../../../interfaces/IStore";
+interface IState {
+}
+interface IProps {
+  type: string;
+}
+interface IGlobalStateProps {
+  account: IAccount | null;
+}
+type TProps = IGlobalStateProps & IProps;
+class AploadMultimedia extends React.PureComponent<TProps, IState> {
+  fileInputRef: React.RefObject<HTMLInputElement>;
+  constructor(props: TProps) {
+    super(props);
+    this.state = {
+    };
+    this.fileInputRef = React.createRef();
+    this.uploadFile = this.uploadFile.bind(this);
+  }
+  uploadFile() {
+    const { account } = this.props;
+    const initialState = { title: "", price: "", category: "", textArea: "" };
+    if (this.fileInputRef.current?.files?.length && account) {
+      const token: any = localStorage.getItem("token");
+      const path = this.fileInputRef.current.files[0];
+      const formData = new FormData();
+      formData.append("file", path);
+      myFetch({
+        method: "POST",
+        path: "/multimedia/create",
+        token,
+        formData
+      }).then(json => {
+        if (json) {
+          console.log("ok");
+          //addFile(json);
+        }
+      });
+      this.setState(initialState);
+      this.fileInputRef.current.value = "";
+    }
+  }
+  render() {
+    //TODO controlar el imput tipe price. Scroll en el select
+    return (
+      <>
+        <div>
+          <input type="file" ref={this.fileInputRef} id="file-name" />
+        </div>
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={this.uploadFile}
+            data-dismiss="modal"
+          >
+            Upload multimedia
+          </button>
+        </div>
+      </>
+    );
+  }
+}
+const mapStateToProps = ({ account }: IStore): IGlobalStateProps => ({
+  account
+});
+export default connect(mapStateToProps)(AploadMultimedia);

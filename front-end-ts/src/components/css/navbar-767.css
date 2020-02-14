@@ -1,0 +1,31 @@
+@media (max-width: 768px) {
+  .my-resp {
+    margin-left: 30px;
+    display: inline-block !important;
+  }
+  .my-notResp {
+    display: none !important;
+  }
+  .my-navbar {
+    display: none;
+  }
+  .my-navbarResp {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    list-style: none;
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+  .navbar-collapse {
+    -webkit-box-flex: unset;
+        -ms-flex-positive: unset;
+            flex-grow: unset;
+  }
+  .navbar-expand {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+/*# sourceMappingURL=navbar-767.css.map */

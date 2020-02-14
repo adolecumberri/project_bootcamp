@@ -1,0 +1,18 @@
+import React from "react";
+
+interface IProps {}
+
+interface IState {}
+
+class Narbar extends React.PureComponent<IProps, IState> {
+  constructor(props: IProps) {
+    super(props);
+    this.state = {};
+  }
+
+  render() {
+    return <></>;
+  }
+}
+
+export default Navbar;

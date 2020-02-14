@@ -1,0 +1,36 @@
+//768 ------> col-md 
+// archivo del responsive de los navbars.
+
+@media (max-width: 768px) {
+
+    .my-resp {
+        margin-left: 30px;
+        display: inline-block !important
+    }
+
+    .my-notResp {
+        display: none !important
+    }
+
+    //NAVBAR que oculto
+    .my-navbar {
+        display: none
+    }
+
+    //NAVBAR responsive:
+    .my-navbarResp {
+        display: flex;
+        list-style: none;
+        margin-bottom: 0px;
+        margin-top: 0px;
+    }
+
+    //cambio navbar para que las cosas se pongan como yo quiero.
+    .navbar-collapse {
+        flex-grow: unset;
+    }
+
+    .navbar-expand {
+        justify-content: center;
+    }
+}

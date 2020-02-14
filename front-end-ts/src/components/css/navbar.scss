@@ -1,0 +1,60 @@
+@import "./navbar-767.css";
+
+
+
+@mixin imgBasicSize {
+    width: 58px;
+    height: 58px;
+}
+
+
+//img mostrada en el responsive
+.my-resp {
+    @include imgBasicSize;
+    display: none;
+    border-radius: 10%;
+    margin: 0px;
+}
+
+// img+text mostrado en el NO responsive
+.my-notResp {
+    margin-left: 30px;
+    display: inline-block;
+
+    img {
+        @include imgBasicSize;
+        margin-right: 30px;
+    }
+}
+
+//navbar
+.my-navbar {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+//navbar Responsive
+.my-navbarResp {
+    justify-content: space-around;
+
+    ul {
+        list-style: none;
+        padding: 0px;
+        margin: 0px;
+    }
+
+}
+
+//user 
+.my-user {}
+
+//navbar del elemento del user
+.my-userNavbar {}
+
+.showed {
+    display: inline-flex !important
+}
+
+.hidden {
+    display: none !important;
+}

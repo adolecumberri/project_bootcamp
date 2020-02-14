@@ -1,0 +1,14 @@
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a li {
+  color: inherit;
+}
+
+a :hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+/*# sourceMappingURL=style.css.map */
