@@ -15,8 +15,6 @@ class BodyP extends React.PureComponent<IProps> {
     const id_user = this.props.id_user;
     const { name, id_portfolio } = this.props.portfolio_file;
     const { presentacion } = this.props;
-    console.log("name");
-    console.log(name);
     return (
       <>
         <div className="container">

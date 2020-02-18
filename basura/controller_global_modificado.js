@@ -9,7 +9,6 @@ class Controller {
   }
 
   showAll  (_, res) {
-    console.log(this.table);
     connection.query(bbdd.showAll(), (err, result) => {
       if (err) throw err;
       res.json(result);
@@ -24,8 +23,6 @@ class Controller {
   }
 
   insert({ body }, res) {
-    console.log("hola insert");
-
     connection.query(bbdd.insert(objToArray(body)), (err, result) => {
       if (err) throw err;
       res.json(result);

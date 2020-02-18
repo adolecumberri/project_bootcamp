@@ -7,7 +7,6 @@ const controller = {};
 controller.uploadUserAvatar = (req, res) => {
   /* CAMBIO DE DIRECTORIO LA IMAGEN RECIEN CREATA */
   let file = `public/multimedia/${req.file.newName}`;
-  console.log(req.file.newName);
   const path = require('path'); //path global
   let f = path.basename(file); //path del archivo
 
@@ -84,7 +83,6 @@ const createUpdateFileQuery = (
       }
     }
   }
-  console.log(sql);
   sql += ` WHERE id = ${id}`;
   return sql;
 };

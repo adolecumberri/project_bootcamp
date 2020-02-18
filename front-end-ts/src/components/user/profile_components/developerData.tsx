@@ -226,7 +226,6 @@ class DeveloperData extends React.PureComponent<TProps, IState> {
         obj: obj
       });
     } catch (err) {
-      console.log(err);
     }
   }
 

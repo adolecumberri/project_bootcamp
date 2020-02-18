@@ -66,7 +66,6 @@ class ShowPortfolio extends React.PureComponent<TProps, IState> {
     this.updatePage = this.updatePage.bind(this);
   }
   updatePage() {
-    console.log("Component Update ");
     let url = window.location.href;
     let id_portfolio = url.substring(url.lastIndexOf("/") + 1);
 
@@ -95,7 +94,6 @@ class ShowPortfolio extends React.PureComponent<TProps, IState> {
   }
 
   componentDidMount() {
-    console.log("Component did mount ");
     let url = window.location.href;
     let id_portfolio = url.substring(url.lastIndexOf("/") + 1);
 
@@ -124,7 +122,6 @@ class ShowPortfolio extends React.PureComponent<TProps, IState> {
   }
 
   render() {
-    console.log(this.props.account?.name);
     const { portfolio_file, user } = this.state;
 
     const {

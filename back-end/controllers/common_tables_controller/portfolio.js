@@ -30,7 +30,6 @@ controller.showRandomAll = (_, res) => {
   WHERE portfolio.active = 1
   order by RAND();
   `;
-  console.log(sql);
   connection.query(sql, (err, result) => {
     if (err) throw err;
     res.send(result);
@@ -46,7 +45,6 @@ controller.showByUserId = ({
 
   let sql = `SELECT id, title, avatar, likes, views, visible, active ` +
     `  from portfolio where id_user = ${id_user} AND active = 1;`
-  console.log(sql);
   connection.query(sql, (err, result) => {
     if (err) throw err;
     res.send(result);
@@ -86,7 +84,6 @@ controller.insert = ({
       /* */
       /* CAMBIO DE DIRECTORIO LA IMAGEN RECIEN CREADA */
       let fileMoving = `public/multimedia/${file.newName}`; //Localizacion original
-      console.log(file.newName);
       const path = require('path'); //path global
       let f = path.basename(fileMoving); //path del archivo
 
@@ -154,7 +151,6 @@ controller.deleteById = ({
   res
 }) => {
   let sql = `UPDATE portfolio set active = 0 where id = ${id};`;
-  console.log(sql);
   connection.query(sql, (e, result) => {
     if (e) throw e;
     res.send(result);

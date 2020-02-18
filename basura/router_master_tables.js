@@ -1,7 +1,6 @@
 module.exports = function(table) {
   var { Router } = require("express");
   var router = Router();
-  console.log("La tabla es " + table);
   const {
     showAll,
     showById,

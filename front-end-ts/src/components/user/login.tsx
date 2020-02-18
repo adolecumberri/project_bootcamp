@@ -96,7 +96,6 @@ class login extends React.PureComponent<TProps, IState> {
           password: `sha1('${password.toLowerCase()}')`
         }
       }).then(token => {
-        console.log(token);
         if (token) {
           myLocalStorage("coworkin_token", token);
           const account = generateAccountFromToken(token);

@@ -150,10 +150,6 @@ class HeaderAvatar extends React.PureComponent<TProps, IState> {
     };
   }
 
-  componentWillUnmount() {
-    console.log("COMPONENT UNMOUN! akjsdfhskafjhfklahdfak");
-  }
-
   componentDidMount() {}
 
   render() {

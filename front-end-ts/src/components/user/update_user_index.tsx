@@ -13,9 +13,6 @@ import "./css/updateUser.css";
 
 class Profile extends React.PureComponent {
   render() {
-    // let currentLink = window.location.href.substr(LOCAL_URL.length);
-    // console.log(LOCAL_URL);
-    // console.log(currentLink);
     return (
       <div style={{ width: "100vw" }}>
         <div

@@ -18,7 +18,6 @@ controller.showByPorfolioId = ({
   where id_portfolio = ${id_portfolio};`
   if (id_portfolio != 0) {
 
-    console.log(sql);
     connection.query(sql, (err, result) => {
       if (err) throw err;
       res.send(result[0]);
@@ -42,9 +41,6 @@ controller.insert = ({
     id_user
   } = body;
   delete body.id_user;
-  console.log(bbdd.insert("file", objToArray(body)));
-
-  console.log(bbdd.insert("file", objToArray(body)));
 
   connection.query(bbdd.insert("file", objToArray(body)),
     (err, result) => {
@@ -57,13 +53,11 @@ controller.insert = ({
         if (fs.existsSync(dir)) {
           fs.mkdirSync(dir + "/body"); //creo una carpeta body en la que se guardan las files del portfolio
         } else {
-          console.log(`El directorio 'public/multimedia/user_${id_user}/portfolios/portfolio${body.id_portfolio}/body' No existe`);
           res.sendStatus(400);
         }
         /* */
         /* --------CAMBIO DE DIRECTORIO LA IMAGEN RECIEN CREADA ------------*/
         let fileMoving = `public/multimedia/${file.newName}`; //Localizacion original
-        console.log(file.newName);
         const path = require('path'); //path global
         let f = path.basename(fileMoving); //path del archivo
 

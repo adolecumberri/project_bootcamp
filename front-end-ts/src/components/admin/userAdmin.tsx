@@ -18,8 +18,6 @@ class UserAdmin extends React.PureComponent<IProps, IState> {
 
   render() {
     /* Algoritmica para crear las tarjetas? */
-
-    console.log("fetch lanzao");
     myFetch({
       path: "/admin/user",
       method: "POST"

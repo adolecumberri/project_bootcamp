@@ -13,7 +13,6 @@ interface IState {}
 class PortfolioData extends React.PureComponent<IProps> {
   render() {
     const { portfolios, id_user } = this.props;
-    console.log(this.props.portfolios);
     return (
       <div className="row mt-3 ">
         {portfolios.map((portfolio, i) => {

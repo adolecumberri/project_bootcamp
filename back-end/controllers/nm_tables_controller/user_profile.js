@@ -27,7 +27,6 @@ controller.showById = ({
 controller.insert = ({
   body
 }, res) => {
-  console.log(objToArray(body));
   connection.query(bbdd.insert("user_profile", objToArray(body)), (err, result) => {
     if (err) throw err;
     res.send(result);
@@ -55,11 +54,6 @@ controller.deleteById = ({
   },
   res
 }) => {
-  console.log("BORRATEEEE");
-  console.log(bbdd.delete("user_profile", [
-    ["id_profile", id_profile],
-    ["id_user", id_user]
-  ]));
   connection.query(bbdd.delete("user_profile", [
     ["id_profile", id_profile],
     ["id_user", id_user]

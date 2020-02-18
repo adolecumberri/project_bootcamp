@@ -56,9 +56,6 @@ class ChangePassword extends React.PureComponent<IGlobalStateProps, IState> {
     let np = this?.newPsswRpt?.current?.value;
     let npr = this?.newPssw?.current?.value;
     let id = this.props.account?.id;
-
-    console.log(this.state.error_new_pssw !== "");
-
     if (np !== "" && npr !== "") {
       if (psswRegex.test(np as string) && psswRegex.test(npr as string)) {
         if (np === npr || this.state.error_old_pssw !== "") {

@@ -69,7 +69,6 @@ controller.updateById = ({
     ]),
     (e, result) => {
       if (e) res.sendStatus(401);
-      console.log(result);
       res.send(result);
     }
   );
@@ -78,12 +77,10 @@ controller.updateById = ({
 controller.login = ({
   body
 }, res) => {
-  console.log(bbdd.select("user", "", [], objToArray(body)));
   connection.query(
     bbdd.select("user", "", [], objToArray(body)),
     (err, result) => {
       if (err) res.sendStatus(400);
-      console.log(result);
       if (result.length != 0) {
         const token = createUserToken({
           id: result[0].id,
@@ -189,11 +186,8 @@ controller.getUserByPortfolioId = ({
 
   let sql = `SELECT id, name, avatar, header, country, state from user` +
     ` where id = (select id_user from portfolio where id = ${id_portfolio});`
-  console.log(sql);
   connection.query(sql, (err, result) => {
     if (err) throw err;
-    console.log("El RESULT: ");
-    console.log(result[0])
     res.send(result[0]);
   });
 

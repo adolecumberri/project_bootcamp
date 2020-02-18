@@ -65,7 +65,6 @@ class PortfolioPanel extends React.PureComponent<IProps, IState> {
 
   render() {
     const { portfolios_preview, isActiveDelete, projectToDelete } = this.state;
-    console.log();
     return (
       <>
         <div className="row">
