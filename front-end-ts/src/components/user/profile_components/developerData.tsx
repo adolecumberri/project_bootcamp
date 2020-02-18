@@ -6,6 +6,9 @@ import { IDevInformation } from "../../../interface/IUser";
 import { IAccount } from "../../../interface/IAccount.js";
 import { IStore } from "../../../interface/IStore";
 import { SetAccountAction } from "src/redux/actions";
+import { decode } from "jsonwebtoken";
+
+import { userRegex, cityRegex } from "src/regex";
 
 interface IGlobalStateProps {
   account: IAccount | null;
@@ -23,7 +26,10 @@ interface IProps {
 }
 
 interface IState {
-  error_name: boolean;
+  error_name: string | boolean;
+  error_city: string | boolean;
+  error_email: string | boolean;
+
   user: IDevInformation;
 }
 
@@ -44,7 +50,8 @@ class DeveloperData extends React.PureComponent<TProps, IState> {
         country: "",
         state: ""
       },
-
+      error_city: false,
+      error_email: false,
       error_name: false
     };
 
@@ -56,6 +63,9 @@ class DeveloperData extends React.PureComponent<TProps, IState> {
     this.updateUserFromInput = this.updateUserFromInput.bind(this);
     this.updateUserFromSelect = this.updateUserFromSelect.bind(this);
     this.UpdateUserBirth = this.UpdateUserBirth.bind(this);
+
+    this.checkCityInput = this.checkCityInput.bind(this);
+    this.checkUserInput = this.checkUserInput.bind(this);
   }
 
   checkDay(e: { target: { value: any } }) {
@@ -136,15 +146,37 @@ class DeveloperData extends React.PureComponent<TProps, IState> {
     }
   }
 
-  updateUserFromInput(e: any) {
+  checkUserInput(e: any) {
+    if (!userRegex.test(e.target.value)) {
+      this.setState({
+        error_name: "Username should contain numbers, letters or both"
+      });
+    } else {
+      this.setState({ error_name: "" });
+      this.updateUserFromInput("name", e.target.value);
+    }
+  }
+
+  checkCityInput(e: any) {
+    if (!cityRegex.test(e.target.value)) {
+      this.setState({
+        error_city: "City should just have letters"
+      });
+    } else {
+      this.setState({ error_city: "" });
+      this.updateUserFromInput("city", e.target.value);
+    }
+  }
+
+  updateUserFromInput(name: string, value: string) {
     let { account } = this.props;
-    let { name, value } = e.target;
     let obj: any = {};
+
     if (value.length >= 3) {
       if (name === "name") {
-        obj = { name: value };
+        obj = { name: value.toLowerCase() };
       } else {
-        obj = { state: value };
+        obj = { state: value.toLowerCase() };
       }
 
       myFetch({
@@ -164,8 +196,13 @@ class DeveloperData extends React.PureComponent<TProps, IState> {
           // El token trae expire & value. Value es el token como tal.
           // lo convierto en objeto y saco el value.
           let newToken = token ? JSON.parse(token).value : null;
+          if (typeof newToken == "string") newToken = decode(newToken);
           // decodifico newToken en un objeto
-          newToken.name = value;
+          if (name === "name") {
+            newToken.name = value.toLowerCase();
+          } else {
+            newToken.state = value.toLowerCase();
+          }
           myLocalStorage("coworkin_token", newToken);
           this.props.setAccount(newToken);
         }
@@ -240,13 +277,14 @@ class DeveloperData extends React.PureComponent<TProps, IState> {
         gender,
         age: { day, month, year }
       },
-      error_name
+      error_name,
+      error_city
     } = this.state;
     const { countries } = this.props;
 
     return (
       <>
-        <div className="container">
+        <div className="my-container">
           <div className="card text-center  mt-4">
             <div className="card-header">
               <h5 className="col-12 mt-1">Developer Information</h5>
@@ -254,24 +292,24 @@ class DeveloperData extends React.PureComponent<TProps, IState> {
 
             <div className="card-body">
               <div className="row">
-                <div className="form-group col-5">
+                <div className="form-group col-12 col-md-5">
                   {!error_name ? (
                     <label htmlFor="name">Username</label>
                   ) : (
                     <label htmlFor="name" style={{ color: "red" }}>
-                      User Already Exist{" "}
+                      {error_name}
                     </label>
                   )}
                   <input
                     name="name"
                     type="text"
-                    className="form-control"
+                    className="form-control text-capitalize"
                     placeholder="Your username? ;)"
-                    onBlur={this.updateUserFromInput}
+                    onBlur={this.checkUserInput}
                     defaultValue={`${name}`}
                   />
                 </div>
-                <div className="form-group col-3">
+                <div className="form-group col-6 col-md-3">
                   <label htmlFor="name">Gender</label>
                   <select
                     name="gender"
@@ -293,7 +331,7 @@ class DeveloperData extends React.PureComponent<TProps, IState> {
                     <option value="female">Female</option>
                   </select>
                 </div>
-                <div className="form-group col-4">
+                <div className="form-group col-6 col-md-4">
                   <label>Date</label>
                   <div
                     className="form-control m-0 p-0 border-0"
@@ -338,7 +376,7 @@ class DeveloperData extends React.PureComponent<TProps, IState> {
                     />
                   </div>
                 </div>
-                <div className="form-group col-6">
+                <div className="form-group col-6 col-md-6">
                   <label htmlFor="country">Country</label>
                   <select
                     id="country"
@@ -348,11 +386,6 @@ class DeveloperData extends React.PureComponent<TProps, IState> {
                     onChange={event => {
                       this.selectEvent(event);
                       this.updateUserFromSelect(event);
-                      /*
-                      let newUser = this.state.user;
-                      newUser.country = event.target.selectedOptions[0].value;
-                      this.setState({user: newUser});
-                      */
                     }}
                     onBlur={this.selectEvent}
                     style={{ position: "absolute", maxWidth: "94%" }}
@@ -374,14 +407,19 @@ class DeveloperData extends React.PureComponent<TProps, IState> {
                     })}
                   </select>
                 </div>
-                <div className="form-group col-6">
-                  <label htmlFor="state">City</label>
+                <div className="form-group col-6 col-md-6">
+                  {error_city ? (
+                    <label className="error">{error_city}</label>
+                  ) : (
+                    <label htmlFor="state">City</label>
+                  )}
+
                   <input
                     name="state"
                     type="text"
                     className="form-control"
                     placeholder=" City ? <---"
-                    onBlur={this.updateUserFromInput}
+                    onBlur={this.checkCityInput}
                     defaultValue={state ? `${state}` : ""}
                   />
                 </div>

@@ -5,6 +5,9 @@ import BodyDev from "./developers_components/body";
 import { IUserCard } from "src/interface/IUser";
 import { myFetch } from "src/utils";
 
+//css
+import "./css/developers.css";
+
 interface IProps {}
 
 interface IState {
@@ -90,17 +93,15 @@ class developers extends React.PureComponent<IProps, IState> {
       activateFiltersModal
     } = this.state;
 
-    console.log();
-
     return (
       <div
-        className="container"
+        className="my-container"
         style={{
           backgroundColor: "antiquewhite",
           width: "100vw"
         }}
       >
-        <div className="row">
+        <div className="row" style={{ margin: "0px" }}>
           <div
             className="col-12"
             style={{

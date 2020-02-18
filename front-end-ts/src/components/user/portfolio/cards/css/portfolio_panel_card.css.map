@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,cAAc,CAAC;EACX,MAAM,EAAE,OAAO;EACf,OAAO,EAAE,qBAAqB;EAC9B,YAAY,EAAE,gBAAgB;EAC9B,UAAU,EAAE,gBAAgB;EAE5B,aAAa,EAAE,iBAAiB;CAEnC",
+    "sources": [
+        "portfolio_panel_card.scss"
+    ],
+    "names": [],
+    "file": "portfolio_panel_card.css"
+}

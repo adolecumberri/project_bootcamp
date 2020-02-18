@@ -3,6 +3,7 @@ import { IAccount } from "src/interface/IAccount";
 import { IStore } from "src/interface/IStore";
 import { connect } from "react-redux";
 import { myFetch } from "src/utils";
+import { psswRegex } from "src/regex";
 
 interface IGlobalStateProps {
   account: IAccount | null;
@@ -34,15 +35,21 @@ class ChangePassword extends React.PureComponent<IGlobalStateProps, IState> {
     const id = this.props.account?.id;
     const old_pssw = e.target.value;
     //  ""
-    myFetch({
-      path: `/user/check_password`,
-      method: "POST",
-      obj: { old_pssw: old_pssw, id_user: id }
-    }).then(json => {
-      if (!json.name) {
-        this.setState({ error_old_pssw: "Wrong Password" });
-      }
-    });
+    if (psswRegex.test(e.target.value)) {
+      myFetch({
+        path: `/user/check_password`,
+        method: "POST",
+        obj: { old_pssw: old_pssw, id_user: id }
+      }).then(json => {
+        if (!json.name) {
+          this.setState({ error_old_pssw: "Wrong Password" });
+        }
+      });
+    } else {
+      this.setState({
+        error_old_pssw: "Password needs at least 8 alphanumeric Characters"
+      });
+    }
   }
 
   changePssw() {
@@ -53,18 +60,24 @@ class ChangePassword extends React.PureComponent<IGlobalStateProps, IState> {
     console.log(this.state.error_new_pssw !== "");
 
     if (np !== "" && npr !== "") {
-      if (np === npr || this.state.error_old_pssw !== "") {
-        myFetch({
-          path: `/user/${id}`,
-          method: "PUT",
-          obj: { password: `sha1('${np}')` }
-        });
-      } else {
-        if (this.state.error_old_pssw !== "") {
-          this.setState({ error_new_pssw: "Current password Missing" });
+      if (psswRegex.test(np as string) && psswRegex.test(npr as string)) {
+        if (np === npr || this.state.error_old_pssw !== "") {
+          myFetch({
+            path: `/user/${id}`,
+            method: "PUT",
+            obj: { password: `sha1('${np}')` }
+          });
         } else {
-          this.setState({ error_new_pssw: "Passwords should match" });
+          if (this.state.error_old_pssw !== "") {
+            this.setState({ error_new_pssw: "Current password Missing" });
+          } else {
+            this.setState({ error_new_pssw: "Passwords should match" });
+          }
         }
+      } else {
+        this.setState({
+          error_new_pssw: "Password needs at least 8 alphanumeric Characters"
+        });
       }
     }
   }
@@ -86,7 +99,7 @@ class ChangePassword extends React.PureComponent<IGlobalStateProps, IState> {
             </div>
             <div className="card-body">
               <div className="row">
-                <div className="col-5">
+                <div className="col-12 col-md-5">
                   <label htmlFor="old_passw" className="float-left">
                     Old Password
                   </label>
@@ -104,7 +117,7 @@ class ChangePassword extends React.PureComponent<IGlobalStateProps, IState> {
                     {error_old_pssw}
                   </small>
                 </div>
-                <div className="col-5">
+                <div className="col-12 col-md-5">
                   <div className="row">
                     <div className="col-12">
                       <label htmlFor="new_pssw" className="float-left">

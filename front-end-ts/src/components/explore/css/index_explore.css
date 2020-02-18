@@ -1,0 +1,31 @@
+@media (max-width: 376px) {
+  .my-containerFluid {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+  .my-rowExplore {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+}
+
+.my-containerFluid {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.my-rowExplore {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+/*# sourceMappingURL=index_explore.css.map */

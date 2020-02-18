@@ -1,5 +1,6 @@
-@import url(c:\Users\Adolfo\Desktop\Bootcamp\TRABAJOS\proyecto_bootcamp\front-end-ts\src\components\css\navbar-767.css);
+@import url(c:\Users\Adolfo\Desktop\Bootcamp\project_bootcamp\front-end-ts\src\components\css\navbar-767.css);
 .my-resp {
+  font-family: president;
   width: 58px;
   height: 58px;
   display: none;
@@ -8,6 +9,8 @@
 }
 
 .my-notResp {
+  font-family: president;
+  font-size: 32px;
   margin-left: 30px;
   display: inline-block;
 }
@@ -19,11 +22,15 @@
 }
 
 .my-navbar {
+  font-family: president;
+  font-size: 32px;
   margin-right: auto;
   margin-left: auto;
 }
 
 .my-navbarResp {
+  font-size: 32px;
+  color: #1a1b1e;
   -ms-flex-pack: distribute;
       justify-content: space-around;
 }

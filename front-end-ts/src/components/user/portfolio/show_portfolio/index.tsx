@@ -11,6 +11,9 @@ import { IPortfolioCard } from "src/interface/IPorfolio";
 import { IFile } from "src/interface/IFile";
 import { IUserCard } from "src/interface/IUser";
 
+//css
+import "./css/show-portfolio.css";
+
 interface IProps {}
 
 interface IGlobalStateProps {
@@ -121,8 +124,6 @@ class ShowPortfolio extends React.PureComponent<TProps, IState> {
   }
 
   render() {
-    let url = window.location.href;
-    let id_url = url.substring(url.lastIndexOf("/") + 1);
     const { portfolio_file, user } = this.state;
 
     const {
@@ -135,7 +136,7 @@ class ShowPortfolio extends React.PureComponent<TProps, IState> {
     return (
       <div className="container-fluid">
         <div className="row">
-          <div className="col-9 ml-5">
+          <div className="my-col9">
             <div className="row">
               <div className="col-12">
                 <HeaderP
@@ -156,7 +157,7 @@ class ShowPortfolio extends React.PureComponent<TProps, IState> {
               </div>
             </div>
           </div>
-          <div className="col-2 ">
+          <div className="col-12 col-md-2 ">
             <div className="row">
               <div className="col-12">
                 <UserInfo

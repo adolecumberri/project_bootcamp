@@ -8,10 +8,6 @@ interface IProps {
 }
 
 class BodyP extends React.PureComponent<IProps> {
-  constructor(props: IProps) {
-    super(props);
-  }
-
   componentDidMount() {}
 
   render() {
@@ -22,8 +18,8 @@ class BodyP extends React.PureComponent<IProps> {
       <>
         <div className="container">
           <div className="row mb-5">
-            <div className="col-2"></div>
-            <div className="col-8">
+            <div className="col-12 col-md-2"></div>
+            <div className=" col-12 col-md-8">
               {name ? (
                 <img
                   alt="portfolio header"
@@ -35,7 +31,7 @@ class BodyP extends React.PureComponent<IProps> {
                 ""
               )}
             </div>
-            <div className="col-2"></div>
+            <div className="col-12 col-md-2"></div>
           </div>
         </div>
       </>

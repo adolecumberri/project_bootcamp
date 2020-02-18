@@ -1,0 +1,17 @@
+@media (max-width: 376px) {
+  .my-col9 {
+    margin-left: 0px !important;
+    -webkit-box-flex: 0 !important;
+        -ms-flex: 0 0 100% !important;
+            flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+  .my-headerTitlePortfolio {
+    margin: unset !important;
+    -webkit-box-flex: 0 !important;
+        -ms-flex: 0 0 100% !important;
+            flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+}
+/*# sourceMappingURL=show-portfolio376.css.map */

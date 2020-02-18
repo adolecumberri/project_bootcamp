@@ -4,7 +4,10 @@ import { LogoutAction } from "src/redux/actions";
 import { IAccount } from "src/interface/IAccount";
 import { IStore } from "src/interface/IStore";
 import { connect } from "react-redux";
-import { LOCAL_URL, API_URL } from "src/constants";
+import { API_URL } from "src/constants";
+
+//css
+import "./css/registered.css";
 
 interface IGlobalStateProps {
   account: IAccount | null;
@@ -59,42 +62,42 @@ class Registered extends React.PureComponent<TProps, IState> {
               src={
                 avatar
                   ? `${API_URL}/multimedia/user_${id}/avatar/${avatar}`
-                  : `${LOCAL_URL}/images/ico_logo40x40.jpg`
+                  : require("../../images/ico_logo40x40.jpg")
               }
               id="mi_avatar"
               className="rounded-circle mt-1"
               style={{ float: "left", height: "5vh" }}
             />
-            <div className="float-left ml-3 mr-2 pt-2 text-capitalize">
+            <div className="my-registeredTitle">
               {name} <i className="fa fa-caret-down" aria-hidden="true"></i>
             </div>
           </a>
           <div className="dropdown-menu">
-            <label className=" ml-3" style={{ color: "#a1a1a1" }}>
-              <i className="far fa-user"></i> USER
+            <label className=" ml-3 my-userMenu" style={{ color: "#a1a1a1" }}>
+              <i className=""></i> USER
             </label>
-            <Link to="/user/profile" className="dropdown-item">
-              <i className="fas fa-user-edit"></i>My Profile
+            <Link to="/user/profile" className="dropdown-item my-userMenu">
+              <i className=""></i>My Profile
             </Link>
 
-            <Link to="/user/portfolio" className="dropdown-item">
-              <i className="far fa-id-card"></i>My Portfolio
+            <Link to="/user/portfolio" className="dropdown-item my-userMenu">
+              <i className=""></i>My Portfolio
             </Link>
             <div className="dropdown-divider"></div>
 
             {/* <label className=" ml-3" style={{ color: "#a1a1a1" }}>
-              <i className="far fa-building"></i> ENTERPRISE
+              <i className=""></i> ENTERPRISE
             </label>
             <Link to="/" className="dropdown-item">
-              <i className="far fa-building"></i> My Enterprises
+              <i className=""></i> My Enterprises
             </Link>
 
             <div className="dropdown-divider"></div> */}
-            <Link to="/" className="dropdown-item">
-              <i className="fas fa-archive"></i> Suggestions Mailbox
-            </Link>
+            {/* <Link to="/" className="dropdown-item">
+              <i className=""></i> Suggestions Mailbox
+            </Link> */}
             <Link to="/main" className="dropdown-item" onClick={this.logout}>
-              <i className="fa fa-power-off"></i> Logout
+              <i className=""></i> Logout
             </Link>
           </div>
         </li>

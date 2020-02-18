@@ -1,5 +1,4 @@
 import React from "react";
-import { LOCAL_URL } from "src/constants";
 
 /** Redux imports */
 import { IAccount } from "src/interface/IAccount";
@@ -7,7 +6,7 @@ import { connect } from "react-redux";
 import { IStore } from "src/interface/IStore";
 import { myFetchFiles } from "src/utils";
 
-/* React router dom */
+//regEx
 
 interface IProps {
   history: any;
@@ -107,8 +106,6 @@ class NewPortfolio extends React.PureComponent<TProps, IState> {
       }).then(({ insertId }: any) => {
         /* Una vez creado el portfolio
       INSERTO EL CONTENIDO */
-        console.log("el insertID");
-        console.log(insertId);
         const formData2 = new FormData();
         formData2.append("id_portfolio", insertId);
         formData2.append(
@@ -154,7 +151,6 @@ class NewPortfolio extends React.PureComponent<TProps, IState> {
   render() {
     const {
       title,
-      description,
       avatar_preview,
       file_preview,
       hasContent_title,
@@ -201,7 +197,7 @@ class NewPortfolio extends React.PureComponent<TProps, IState> {
                             alt="avatar for your Profile!"
                             src={
                               !avatar_preview
-                                ? `${LOCAL_URL}/images/ico_logo40x40.jpg`
+                                ? require("../../../../images/ico_logo40x40.jpg")
                                 : ""
                             }
                             className="rounded-circle mt-4"
@@ -285,6 +281,7 @@ class NewPortfolio extends React.PureComponent<TProps, IState> {
                         {/* AÑADIR ELEMENTOS AQUI: */}
                         {file_preview ? (
                           <img
+                            alt="preview"
                             id="preview_content_file"
                             style={{ maxWidth: "360px", maxHeight: "360px" }}
                           />
@@ -300,7 +297,7 @@ class NewPortfolio extends React.PureComponent<TProps, IState> {
                       hasContent_body &&
                       hasContent_title ? (
                         <button
-                          className="btn btn-danger"
+                          className="my-input"
                           onClick={this.submitPortfolio}
                         >
                           Guardar proyecto
@@ -308,7 +305,7 @@ class NewPortfolio extends React.PureComponent<TProps, IState> {
                       ) : (
                         <button
                           disabled
-                          className="btn btn-danger"
+                          className="my-input disabled"
                           onClick={this.submitPortfolio}
                         >
                           Guardar proyecto

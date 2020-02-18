@@ -21,10 +21,6 @@ interface IProps {
 interface IState {}
 
 class BodyDev extends React.PureComponent<IProps> {
-  constructor(props: IProps) {
-    super(props);
-  }
-
   render() {
     const {
       userCards,
@@ -39,32 +35,23 @@ class BodyDev extends React.PureComponent<IProps> {
       country !== "null" ? user.country === country : true
     );
 
-    console.log(profilesFromUsers);
-
-    console.log(profiles);
     if (profiles.length) {
       //CREACIÓN del filtro total de las categorías.
       // TODAS las ids-categories las filtro con los Profiles seleccionados.
       let usersWithCateg = profilesFromUsers.filter(categ =>
         profiles.find(profileRow => profileRow.name === categ.name)
       );
-      console.log(usersWithCateg);
 
       userCardsFiltered = userCardsFiltered.filter(u =>
-        usersWithCateg.find(row => row.id_user == u.id)
+        usersWithCateg.find(row => row.id_user === u.id)
       );
     }
-
-    console.log(userCardsFiltered);
 
     return (
       <div className="row justify-content-around">
         {userCardsFiltered.map((user: IUserCard, index: number) => {
           return (
-            <div
-              className="col-3 px-2 mb-4 position-relative rounded"
-              key={index}
-            >
+            <div className="card-artist" key={index}>
               <div
                 className="rounded bg-light p-1"
                 style={{
@@ -123,7 +110,7 @@ class BodyDev extends React.PureComponent<IProps> {
                         <p className="text-center p-0  m-auto">
                           {
                             countries.find(
-                              country => country.code == user.country
+                              country => country.code === user.country
                             )?.name
                           }
                         </p>

@@ -89,8 +89,11 @@ class FilterDev extends React.PureComponent<IProps, IState> {
       >
         <div className="modal-content" id="modal-filters">
           <div className="row"></div>
-          <div className="modal-header  mb-3">
-            proyect_bootcamp Filters
+          <div
+            className="modal-header my-titleDevelopers mb-3"
+            style={{ fontSize: "25px" }}
+          >
+            Artists Filters
             <button
               type="button"
               className="close"
@@ -103,7 +106,7 @@ class FilterDev extends React.PureComponent<IProps, IState> {
             <div className="row">
               {catNulls.map(prof => {
                 return (
-                  <div key={prof.id} className="col-3 pr-0 ">
+                  <div key={prof.id} className="col-6  col-md-3 pr-0 ">
                     <div className="col-12 px-0 mx-0 ">
                       <label htmlFor={"" + prof.id} className="text-capitalize">
                         <input
@@ -138,7 +141,7 @@ class FilterDev extends React.PureComponent<IProps, IState> {
             <div className="row">
               {categories.map((categ, index) => {
                 return (
-                  <div className="col-4" key={index}>
+                  <div className=" col-6 col-md-4" key={index}>
                     <h5
                       className="col-12 "
                       style={{ borderBottom: "2px solid #1a1b1e" }}

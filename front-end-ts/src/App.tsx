@@ -11,9 +11,8 @@ import { IStore } from "./interface/IStore";
 import { IAccount } from "./interface/IAccount";
 
 /* Main Pages */
-import main from "./components/main/index_main";
 import explore from "./components/explore/index_explore";
-import developers from "./components/developers/index_developers";
+import artists from "./components/developers/index_developers";
 import enterprises from "./components/enterprise/index_enterprise";
 import contact_us from "./components/contact_us/index_contact_us";
 
@@ -35,6 +34,7 @@ import NewPortfolio from "./components/user/portfolio/create_portfolio/new_portf
 
 /* css */
 import "./css/app.css";
+import "./css/animations.css";
 
 interface IGlobalStateProps {
   account: IAccount | null;
@@ -64,10 +64,10 @@ class App extends React.PureComponent<TProps> {
           {!account && <NavbarUnlogged />}
           {account && <NavbarLogged />}
           <Switch>
-            <Route path="/" exact component={main} />
-            <Route path="/main" exact component={main} />
+            <Route path="/" exact component={explore} />
+            {/* <Route path="/main" exact component={main} /> */}
             <Route path="/contact_us" exact component={contact_us} />
-            <Route path="/developers" exact component={developers} />
+            <Route path="/artists" exact component={artists} />
             <Route path="/enterprises" exact component={enterprises} />
             <Route path="/explore" exact component={explore} />
             <Route path="/admin/user" component={UserAdmin} />

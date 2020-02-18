@@ -71,7 +71,7 @@ class Categories extends React.PureComponent<IGlobalStateProps, IState> {
     const { categories, catNotNulls, catNulls } = this.state.profiles;
     const { containedProfiles } = this.state;
     return (
-      <div className="container">
+      <div className="my-container">
         <div className="card text-center  mt-4">
           <div className="card-header">
             <h5 className="col-12 mt-1">Categories</h5>
@@ -80,7 +80,7 @@ class Categories extends React.PureComponent<IGlobalStateProps, IState> {
             <div className="row">
               {catNulls.map(prof => {
                 return (
-                  <div key={prof.id} className="col-3">
+                  <div key={prof.id} className="col-6 col-md-3">
                     <div className="row">
                       <div className="col-2" />
                       <div className="col-2 ">
@@ -110,15 +110,15 @@ class Categories extends React.PureComponent<IGlobalStateProps, IState> {
             <div className="row">
               {categories.map((categ, index) => {
                 return (
-                  <div className="col-4" key={index}>
+                  <div className="col-6 col-md-4" key={index}>
                     <div className="card-header">
-                      <h5 className="col-12 mt-1">{categ.category}</h5>
+                      <h5 className="col-md-12 mt-1">{categ.category}</h5>
                     </div>
                     <div className="card-body">
                       {catNotNulls.map((prof, i) => {
                         return prof.category === categ.category ? (
                           <div className="row" key={i}>
-                            <div className="col-2" />
+                            <div className="col-12 col-md-2" />
                             <div className="col-2">
                               <input
                                 id={"" + prof.id}
@@ -133,7 +133,7 @@ class Categories extends React.PureComponent<IGlobalStateProps, IState> {
                                 }
                               />
                             </div>
-                            <div className="col-8  d-flex justify-content-start">
+                            <div className="col-9 col-md-8  d-flex justify-content-start">
                               <label htmlFor={"" + prof.id}>{prof.name}</label>
                             </div>
                           </div>

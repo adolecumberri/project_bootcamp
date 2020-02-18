@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "login_register.scss"
+    ],
+    "names": [],
+    "file": "login_register.css"
+}

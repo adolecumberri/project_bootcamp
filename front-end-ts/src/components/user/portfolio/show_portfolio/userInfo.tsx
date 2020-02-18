@@ -1,5 +1,5 @@
 import React from "react";
-import { API_URL, LOCAL_URL } from "src/constants";
+import { API_URL } from "src/constants";
 import { Link } from "react-router-dom";
 
 interface IProps {
@@ -10,11 +10,8 @@ interface IProps {
 }
 
 class UserInfo extends React.PureComponent<IProps> {
-  constructor(props: IProps) {
-    super(props);
-  }
   render() {
-    const { avatar, name, id_user, id_portfolio } = this.props;
+    const { avatar, name, id_user } = this.props;
     return (
       <>
         <div className="container">
@@ -23,11 +20,11 @@ class UserInfo extends React.PureComponent<IProps> {
               <Link to={`/content_creator/${id_user}`}>
                 <div className="text-center">
                   <img
-                    alt="User Image"
+                    alt="User Avatar... where is it?"
                     src={
                       avatar
                         ? `${API_URL}/multimedia/user_${id_user}/avatar/${avatar}`
-                        : `${LOCAL_URL}/images/ico_logo40x40.jpg`
+                        : require("../../../../images/ico_logo40x40.jpg")
                     }
                     className="logo rounded"
                     style={{ width: "80px" }}

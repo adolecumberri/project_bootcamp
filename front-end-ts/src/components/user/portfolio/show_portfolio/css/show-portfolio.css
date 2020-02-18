@@ -1,0 +1,20 @@
+@import url(c:\Users\Adolfo\Desktop\Bootcamp\project_bootcamp\front-end-ts\src\components\user\portfolio\show_portfolio\css\show-portfolio376.css);
+.my-col9 {
+  margin-left: 3rem;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 75%;
+          flex: 0 0 75%;
+  max-width: 75%;
+}
+
+.my-headerTitlePortfolio {
+  margin: auto;
+  padding-top: 3rem;
+  padding-bottom: 1rem;
+  padding: 0;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 83.333333%;
+          flex: 0 0 83.333333%;
+  max-width: 83.333333%;
+}
+/*# sourceMappingURL=show-portfolio.css.map */

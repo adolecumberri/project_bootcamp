@@ -2,6 +2,12 @@ import React from "react";
 import { myFetch } from "../../utils";
 import Swal from "sweetalert2";
 
+//regex
+import { userRegex, emailRegex, psswRegex } from "src/regex";
+
+//css
+import "./css/login_register.css";
+
 /* ----------------------------Propiedades Del Componente + de la Store------------------------------- */
 interface IProps {
   registered: any;
@@ -40,37 +46,66 @@ class register extends React.PureComponent<IProps, IState> {
     this.onPassword_validationChange = this.onPassword_validationChange.bind(
       this
     );
+    /* Eventos blur */
+    this.onNameBlur = this.onNameBlur.bind(this);
+    this.onEmailBlur = this.onEmailBlur.bind(this);
+    this.onPasswordBlur = this.onPasswordBlur.bind(this);
 
     /* eventos de confirmación del formulario */
     this.checkForm = this.checkForm.bind(this);
     this.ejecutarFetch = this.ejecutarFetch.bind(this);
   }
-  onNameChange(event: any) {
-    const name = event.target.value;
-    this.setState({ name, error_name: "" });
-  }
-  onPasswordChange(e: any) {
-    const password = e.target.value;
-    this.setState({ password, error_pssw: "" });
-  }
-  onEmailChange(e: any) {
-    const email = e.target.value;
-    this.setState({ email, error_email: "" });
+  onNameChange(e: any) {
+    if (e.target.value.length <= 25) {
+      const name = e.target.value;
+      this.setState({ name, error_name: "" });
+    }
   }
 
+  onPasswordChange(e: any) {
+    if (e.target.value.length <= 25) {
+      const password = e.target.value;
+      this.setState({ password, error_pssw: "" });
+    }
+  }
+  onEmailChange(e: any) {
+    if (e.target.value.length <= 25) {
+      const email = e.target.value;
+      this.setState({ email, error_email: "" });
+    }
+  }
   onPassword_validationChange(e: any) {
-    const password_validation = e.target.value;
-    this.setState({ password_validation });
-    this.setState({ password_validation, error_pssw: "" });
+    if (e.target.value.length <= 25) {
+      const password_validation = e.target.value;
+      this.setState({ password_validation });
+      this.setState({ password_validation, error_pssw: "" });
+    }
+  }
+
+  onNameBlur(e: any) {
+    if (!userRegex.test(e.target.value.toLowerCase())) {
+      this.setState({
+        error_name: "Username should contain numbers, letters or both"
+      });
+    }
+  }
+  onEmailBlur(e: any) {
+    if (!emailRegex.test(e.target.value)) {
+      this.setState({
+        error_email: "Wron Email format"
+      });
+    }
+  }
+  onPasswordBlur(e: any) {
+    if (!psswRegex.test(e.target.value)) {
+      this.setState({
+        error_pssw: "Password needs at least 8 alphanumeric Characters"
+      });
+    }
   }
 
   async register() {
-    try {
-      this.checkForm();
-    } catch (error) {
-      console.log("error");
-      console.log(error);
-    }
+    this.checkForm();
   }
 
   checkForm() {
@@ -113,25 +148,7 @@ class register extends React.PureComponent<IProps, IState> {
       });
     }
   }
-  /* Ni puta idea de validar o mneter RegExp */
-  /*
-  checkEmail(email : string){
-    const emailParsed = email.toLowerCase();
 
-      // Validacion caracteres especiales:  
-      // REGEX PARA NOMBRES: ^[a-zA-Z0-9]+(?:\s[a-zA-Z0-9]+){0,20}$
-
-      // REGEX PARA CORREOS: ^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]+$  
-  }
-  */
-  /*
-  checkName(){
-    // Validacion caracteres especiales:  
-    // REGEX PARA NOMBRES: ^[a-zA-Z0-9]+(?:\s[a-zA-Z0-9]+){0,20}$
-
-    // REGEX PARA CORREOS: ^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]+$  
-}
-*/
   render() {
     /* variables con las que trabajo en el formulario */
     const {
@@ -145,27 +162,27 @@ class register extends React.PureComponent<IProps, IState> {
     } = this.state;
     return (
       <div
-        className="container background-register animated fadeIn "
+        className="container background-register animated fadeIn notSelected"
         style={{ position: "absolute", minWidth: "100%", zIndex: 4 }}
       >
         <div className="modal-dialog modal-dialog-centered animated  bounceInLeft">
           <div className="modal-content container">
             <div className="row"></div>
-            <div className="modal-header mt-3 mb-3">
+            <div className="modal-header mt-3 mb-3 d-flex justify-content-center">
               <h5
                 className="modal-title text-center"
                 id="exampleModalCenterTitle"
               >
-                <img src="images/ico_logo100x75.jpg" alt="proyect_bootcamps" />
+                <img
+                  src={require("../../images/ico_logo100x75.jpg")}
+                  alt="proyect_bootcamps"
+                />
                 <br />
-                Registro proyect_bootcamp
+                Project Register
               </h5>
             </div>
             <div className="modal-body mt-3 mb-3">
               <div className="field">
-                <label htmlFor="name" className="label">
-                  Username
-                </label>
                 <div className="control">
                   <input
                     type="text"
@@ -173,44 +190,57 @@ class register extends React.PureComponent<IProps, IState> {
                     className="input col-12"
                     value={name}
                     onChange={this.onNameChange}
+                    onBlur={this.onNameBlur}
                   />
-                  {error_name}
+
+                  {error_name ? (
+                    <span className="error"> {error_name}</span>
+                  ) : (
+                    <label htmlFor="name" className="label">
+                      Username
+                    </label>
+                  )}
                 </div>
               </div>
               <div className="field">
-                <label htmlFor="email" className="label">
-                  Email
-                </label>
-                <div className="control">
-                  <input
-                    type="text"
-                    name="email"
-                    className="input col-12"
-                    onChange={this.onEmailChange}
-                    value={email}
-                  />
-                  {error_email}
-                </div>
+                <input
+                  type="text"
+                  name="email"
+                  className="input col-12"
+                  onChange={this.onEmailChange}
+                  onBlur={this.onEmailBlur}
+                  value={email}
+                />
+                {error_email ? (
+                  <span className="error"> {error_email}</span>
+                ) : (
+                  <label htmlFor="email" className="label">
+                    Email
+                  </label>
+                )}
               </div>
+
+              <div className="control"></div>
               <div className="field">
-                <label htmlFor="password" className="label">
-                  Password
-                </label>
                 <div className="control">
                   <input
                     type="text"
                     name="password"
                     className="input col-12"
                     onChange={this.onPasswordChange}
+                    onBlur={this.onPasswordBlur}
                     value={password}
                   />
-                  {error_pssw ? <p className="error">{error_pssw}</p> : ""}
+                  {error_pssw ? (
+                    <p className="error">{error_pssw}</p>
+                  ) : (
+                    <label htmlFor="password" className="label">
+                      Password
+                    </label>
+                  )}
                 </div>
               </div>
               <div className="field">
-                <label htmlFor="password_validation" className="label">
-                  Repeat password
-                </label>
                 <div className="control">
                   <input
                     type="text"
@@ -219,14 +249,20 @@ class register extends React.PureComponent<IProps, IState> {
                     onChange={this.onPassword_validationChange}
                     value={password_validation}
                   />
-                  {error_pssw ? <p className="error">{error_pssw}</p> : ""}
+                  {error_pssw ? (
+                    <p className="error">{error_pssw}</p>
+                  ) : (
+                    <label htmlFor="password_validation" className="label">
+                      Repeat password
+                    </label>
+                  )}
                 </div>
               </div>
             </div>
             <div className="modal-footer mt-3 mb-3">
               <button
                 type="button"
-                className="btn btn-primary is-link"
+                className="my-input is-link"
                 disabled={name.length === 0 || password.length === 0}
                 onClick={this.register}
               >

@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Registered from "../components/user/registered";
-import { LOCAL_URL } from "src/constants";
 
 import { connect } from "react-redux";
 import { IStore } from "src/interface/IStore";
@@ -44,7 +43,7 @@ class NavbarLogged extends React.PureComponent<TProps, IState> {
 
     return (
       <>
-        <div className="container-fluid " style={{ padding: "0px" }}>
+        <div className="container-fluid notSelected" style={{ padding: "0px" }}>
           <div className="col-12" style={{ margin: "0px", padding: "0px" }}>
             <nav className="navbar navbar-expand navbar-light bg-light ">
               {/* IMG + Nombre */}
@@ -61,19 +60,19 @@ class NavbarLogged extends React.PureComponent<TProps, IState> {
               />
               <div className=" navbar-collapse" id="main_navbar">
                 <ul className="navbar-nav my-navbar">
-                  <li className="nav-item active">
+                  {/* <li className="nav-item active">
                     <Link to="/main" className="nav-link">
                       MAIN
                     </Link>
-                  </li>
+                  </li> */}
                   <li className="nav-item active">
                     <Link to="/explore" className="nav-link">
                       EXPLORE
                     </Link>
                   </li>
                   <li className="nav-item active">
-                    <Link to="/developers" className="nav-link">
-                      DEVELOPERS
+                    <Link to="/artists" className="nav-link">
+                      ARTISTS
                     </Link>
                   </li>
                   {isAdmin ? (
@@ -95,18 +94,13 @@ class NavbarLogged extends React.PureComponent<TProps, IState> {
                 }`}
               >
                 <li className="nav-item active">
-                  <Link to="/main" className="nav-link">
-                    MAIN
-                  </Link>
-                </li>
-                <li className="nav-item active">
                   <Link to="/explore" className="nav-link">
                     EXPLORE
                   </Link>
                 </li>
                 <li className="nav-item active">
-                  <Link to="/developers" className="nav-link">
-                    DEVELOPERS
+                  <Link to="/artists" className="nav-link">
+                    ARTISTS
                   </Link>
                 </li>
                 {isAdmin ? (

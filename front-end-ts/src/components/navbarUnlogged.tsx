@@ -2,7 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Login from "./user/login";
 import Register from "./user/register";
-import { LOCAL_URL } from "src/constants";
+
+/* css */
+import "./css/navbar.css";
+
 interface IProps {}
 
 interface IState {
@@ -48,7 +51,7 @@ class Navbar extends React.PureComponent<IProps, IState> {
     const { loginFlag, registerFlag } = this.state;
     return (
       <>
-        <div className="container-fluid " style={{ padding: "0px" }}>
+        <div className="container-fluid notSelected" style={{ padding: "0px" }}>
           <div className="col-12" style={{ margin: "0px", padding: "0px" }}>
             <nav className="navbar navbar-expand navbar-light bg-light ">
               {/* IMG + Nombre */}
@@ -65,20 +68,42 @@ class Navbar extends React.PureComponent<IProps, IState> {
               />
               <div className=" navbar-collapse" id="main_navbar">
                 <ul className="navbar-nav my-navbar">
-                  <li className="nav-item active">
+                  {/* <li className="nav-item active">
                     <Link to="/main" className="nav-link">
                       MAIN
                     </Link>
-                  </li>
+                  </li> */}
                   <li className="nav-item active">
                     <Link to="/explore" className="nav-link">
                       EXPLORE
                     </Link>
                   </li>
                   <li className="nav-item active">
-                    <Link to="/developers" className="nav-link">
-                      DEVELOPERS
+                    <Link to="/artists" className="nav-link">
+                      ARTISTS
                     </Link>
+                  </li>
+                </ul>
+                <ul className="navbar-nav ">
+                  <li>
+                    <button
+                      type="button"
+                      className="my-input mr-3"
+                      data-toggle="modal"
+                      onClick={this.loginActivation}
+                    >
+                      Login
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      type="button"
+                      className="my-input"
+                      data-toggle="modal"
+                      onClick={this.registerActivation}
+                    >
+                      Register
+                    </button>
                   </li>
                 </ul>
               </div>
@@ -91,18 +116,13 @@ class Navbar extends React.PureComponent<IProps, IState> {
                 }`}
               >
                 <li className="nav-item active">
-                  <Link to="/main" className="nav-link">
-                    MAIN
-                  </Link>
-                </li>
-                <li className="nav-item active">
                   <Link to="/explore" className="nav-link">
                     EXPLORE
                   </Link>
                 </li>
                 <li className="nav-item active">
-                  <Link to="/developers" className="nav-link">
-                    DEVELOPERS
+                  <Link to="/artists" className="nav-link">
+                    ARTISTS
                   </Link>
                 </li>
               </ul>

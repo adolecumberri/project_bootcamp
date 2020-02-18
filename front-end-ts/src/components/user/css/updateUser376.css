@@ -1,0 +1,27 @@
+@media (max-width: 376px) {
+  .my-UpdateUserList {
+    margin-left: 0px;
+    margin-right: 0px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .my-UpdateUserList a {
+    min-width: 50%;
+  }
+  .my-UpdateUserList a li {
+    width: 100%;
+    margin: 0px !important;
+  }
+  .my-container {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+  }
+}
+/*# sourceMappingURL=updateUser376.css.map */

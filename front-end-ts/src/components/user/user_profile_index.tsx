@@ -6,12 +6,7 @@ import Header from "./show_profile/header";
 import PortfolioData from "./show_profile/portfolio_data";
 import { myFetch } from "src/utils";
 import { IUser } from "src/interface/IUser";
-import { RouteComponentProps } from "react-router-dom";
-import { IAccount } from "src/interface/IAccount";
-import {
-  IPortfolioCard_creator,
-  IPortfolioCard
-} from "src/interface/IPorfolio";
+import { IPortfolioCard } from "src/interface/IPorfolio";
 import { IportfolioUser } from "src/interface/IProfile";
 
 interface IProps {}
@@ -62,15 +57,10 @@ class UserProfile extends React.PureComponent<IProps, IState> {
     let url = window.location.href;
     let id_portfolio = url.substring(url.lastIndexOf("/") + 1);
     /** GET USER BY ID */
-    console.log("id_portfolio");
-
-    console.log(id_portfolio);
     myFetch({
       path: `/user/${id_portfolio}`,
       method: "GET"
     }).then(json => {
-      console.log("json");
-      console.log(json);
       this.setState({ user: { ...json } });
 
       /* Get num of portfolios */

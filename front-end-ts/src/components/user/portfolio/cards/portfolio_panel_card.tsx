@@ -3,9 +3,12 @@ import { IPortfolioCard } from "src/interface/IPorfolio";
 import { API_URL } from "src/constants";
 import { Link } from "react-router-dom";
 
+/* css */
+import "./css/portfolio_panel_card.css";
 interface IProps {
   portfolio: IPortfolioCard;
   id_user: number | undefined;
+  modal: any;
 }
 
 interface IState {}
@@ -19,11 +22,10 @@ class PortfolioCard extends React.PureComponent<IProps, IState> {
   componentDidMount() {}
 
   render() {
-    const { id_user } = this.props;
-    const { portfolio } = this.props;
+    const { id_user, portfolio, modal } = this.props;
     return (
       <>
-        <div className="col-3 p-2">
+        <div className="col-3 p-2 notSelected">
           <div
             className="p-2 rounded"
             style={{
@@ -58,10 +60,11 @@ class PortfolioCard extends React.PureComponent<IProps, IState> {
                 </div>
               </div>
               <div
-                className="text bg-danger p-2 px-3 mr-2 mt-2 rounded"
+                className="my-spanDelete text my-input"
                 style={{ position: "absolute", top: "10px", right: "10px" }}
+                onClick={() => modal(portfolio)}
               >
-                <span style={{ color: "#f1f1f1" }}> D </span>
+                <span>D</span>
               </div>
             </div>
           </div>

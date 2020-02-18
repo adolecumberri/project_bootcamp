@@ -11,9 +11,6 @@ interface IProps {
 interface IState {}
 
 class PortfolioData extends React.PureComponent<IProps> {
-  constructor(props: IProps) {
-    super(props);
-  }
   render() {
     const { portfolios, id_user } = this.props;
     console.log(this.props.portfolios);

@@ -1,4 +1,4 @@
-@import "./navbar-767.css";
+@import "navbar-767.css";
 
 
 
@@ -10,6 +10,7 @@
 
 //img mostrada en el responsive
 .my-resp {
+    font-family: president;
     @include imgBasicSize;
     display: none;
     border-radius: 10%;
@@ -18,6 +19,8 @@
 
 // img+text mostrado en el NO responsive
 .my-notResp {
+    font-family: president;
+    font-size: 32px;
     margin-left: 30px;
     display: inline-block;
 
@@ -29,12 +32,16 @@
 
 //navbar
 .my-navbar {
+    font-family: president;
+    font-size: 32px;
     margin-right: auto;
     margin-left: auto;
 }
 
 //navbar Responsive
 .my-navbarResp {
+    font-size: 32px;
+    color: #1a1b1e;
     justify-content: space-around;
 
     ul {
@@ -45,11 +52,7 @@
 
 }
 
-//user 
-.my-user {}
 
-//navbar del elemento del user
-.my-userNavbar {}
 
 .showed {
     display: inline-flex !important

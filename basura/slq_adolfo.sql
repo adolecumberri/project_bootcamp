@@ -42,9 +42,9 @@ CREATE TABLE `social_media`(
 /* -----------------------------------------------TABLES ---------------------------------------   */
 CREATE TABLE `user` (
   `id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  `email` varchar(60) UNIQUE,
-  `password`  varchar(60) ,
-  `name`  varchar(255) UNIQUE,
+  `email` varchar(30) UNIQUE,
+  `password`  varchar(30) ,
+  `name`  varchar(25) UNIQUE,
   `age` int(3),
   `gender` enum('Man', 'Woman', 'Other'),
   `country`   varchar(2),
@@ -116,7 +116,7 @@ CREATE TABLE `portfolio` (
   `publish` tinyint(1) DEFAULT NULL,
   `date`  date NOT NULL,
   `visible` tinyint(1) DEFAULT 1,
-  `active` tinyint(1) DEFAULT 0,
+  `active` tinyint(1) DEFAULT 1,
   FOREIGN KEY(id_user) REFERENCES user(id),
   FOREIGN KEY(id_project) REFERENCES project(id)
 ) ENGINE=InnoDB DEFAULT CHARSET utf8mb4;

@@ -1,6 +1,88 @@
-a {
-  text-decoration: none;
-  color: #1a1b1e
+@font-face {
+  font-family: poison;
+  src: url(Poison-Regular.otf);
 }
 
+@font-face {
+  font-family: president;
+  src: url(president.ttf);
+}
+
+@font-face {
+  font-family: megan;
+  src: url(MeganJune.otf);
+}
+
+* {
+  font-family: megan;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  color: #1a1b1e;
+}
+
+a li {
+  color: inherit;
+}
+
+a :hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+}
+
+.my-input {
+  padding: .375rem .75rem;
+  display: inline-block;
+  -webkit-user-select: none !important;
+     -moz-user-select: none !important;
+      -ms-user-select: none !important;
+          user-select: none !important;
+  outline: none !important;
+  border: 2px solid #1a1b1e;
+  color: #1a1b1e;
+  background-color: #f1f1f1;
+}
+
+.my-input:hover,
+.my-input:focus {
+  color: #f1f1f1;
+  -webkit-transition-duration: 0.45s;
+          transition-duration: 0.45s;
+  background-color: #1a1b1e;
+}
+
+.disabled {
+  color: #696969 !important;
+  background: #d8cfcf !important;
+  border: 2px solid #969696 !important;
+}
+
+.disabled:hover {
+  color: #696969 !important;
+  background: #d8cfcf !important;
+  border: 2px solid #969696 !important;
+}
+
+.notSelected {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.input {
+  border: 0px;
+  border-bottom: 1px solid #1a1b1e;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
 /*# sourceMappingURL=app.css.map */

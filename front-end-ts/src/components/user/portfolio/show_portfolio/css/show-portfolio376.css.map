@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,MAAM,EAAE,SAAS,EAAE,KAAK;EAEpB,AAAA,QAAQ,CAAC;IACL,WAAW,EAAE,cAAc;IAC3B,IAAI,EAAE,mBAAmB;IACzB,SAAS,EAAE,eAAe;GAC7B;EAED,AAAA,wBAAwB,CAAC;IACrB,MAAM,EAAE,gBAAgB;IACxB,IAAI,EAAE,mBAAmB;IACzB,SAAS,EAAE,eAAe;GAC7B",
+    "sources": [
+        "show-portfolio376.scss"
+    ],
+    "names": [],
+    "file": "show-portfolio376.css"
+}

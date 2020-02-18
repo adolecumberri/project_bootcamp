@@ -1,0 +1,22 @@
+@media (max-width: 376px) {
+    .filterType1 {
+        padding: 0px !important;
+        flex: 0 0 99% !important;
+        max-width: 99% !important;
+    }
+
+    .filterType2 {
+        padding: 0px !important;
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+    }
+
+    .card-artist {
+        padding: 0rem 0rem !important;
+        margin-bottom: 1.5rem;
+
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+    }
+
+}

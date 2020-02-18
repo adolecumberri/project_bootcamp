@@ -1,11 +1,9 @@
 import React from "react";
-import { myFetch } from "src/utils";
 import { IUser } from "src/interface/IUser";
 
 /* JSON de ciudades. */
 import countries from "src/jsons/cities.json";
 import { IportfolioUser } from "src/interface/IProfile";
-import { IPortfolioCard } from "src/interface/IPorfolio";
 
 interface IProps {
   user: IUser | null;
@@ -14,10 +12,6 @@ interface IProps {
 }
 
 class PortfolioUserData extends React.PureComponent<IProps> {
-  constructor(props: IProps) {
-    super(props);
-  }
-
   render() {
     let userData: any = { ...this?.props?.user };
     const { active, age, gender, country } = userData;
@@ -37,11 +31,7 @@ class PortfolioUserData extends React.PureComponent<IProps> {
         {gender ? <div className="">{gender}</div> : ""}
         {country ? (
           <div className="">
-            {
-              countries.find(e => {
-                if (e.code === country) return true;
-              })?.name
-            }
+            {countries.find(e => (e.code === country ? true : false))?.name}
           </div>
         ) : (
           ""

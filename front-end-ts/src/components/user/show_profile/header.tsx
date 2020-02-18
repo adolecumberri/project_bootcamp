@@ -1,8 +1,5 @@
 import React from "react";
-import { myFetch } from "src/utils";
-import { runInThisContext } from "vm";
-import { API_URL, LOCAL_URL } from "src/constants";
-import { maxHeaderSize } from "http";
+import { API_URL } from "src/constants";
 
 interface IProps {
   id_user: number | null;
@@ -13,10 +10,6 @@ interface IProps {
 }
 
 class Header extends React.PureComponent<IProps> {
-  constructor(props: IProps) {
-    super(props);
-  }
-
   componentDidMount() {}
 
   render() {
@@ -51,7 +44,7 @@ class Header extends React.PureComponent<IProps> {
               src={
                 avatar
                   ? `${API_URL}/multimedia/user_${id_user}/avatar/${avatar}`
-                  : `${LOCAL_URL}/images/ico_logo100x75.jpg`
+                  : require("../../../images/ico_logo40x40.jpg")
               }
               style={{ width: "100%", height: "100%" }}
             />

@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
 @-webkit-keyframes bounce {
+
   from,
   20%,
   53%,
@@ -34,6 +35,7 @@
 }
 
 @keyframes bounce {
+
   from,
   20%,
   53%,
@@ -74,6 +76,7 @@
 }
 
 @-webkit-keyframes bounceIn {
+
   from,
   20%,
   40%,
@@ -119,6 +122,7 @@
 }
 
 @keyframes bounceIn {
+
   from,
   20%,
   40%,
@@ -171,6 +175,7 @@
 }
 
 @-webkit-keyframes bounceInDown {
+
   from,
   60%,
   75%,
@@ -209,6 +214,7 @@
 }
 
 @keyframes bounceInDown {
+
   from,
   60%,
   75%,
@@ -252,6 +258,7 @@
 }
 
 @-webkit-keyframes bounceInLeft {
+
   from,
   60%,
   75%,
@@ -290,6 +297,7 @@
 }
 
 @keyframes bounceInLeft {
+
   from,
   60%,
   75%,
@@ -333,6 +341,7 @@
 }
 
 @-webkit-keyframes bounceInRight {
+
   from,
   60%,
   75%,
@@ -371,6 +380,7 @@
 }
 
 @keyframes bounceInRight {
+
   from,
   60%,
   75%,
@@ -414,6 +424,7 @@
 }
 
 @-webkit-keyframes bounceInUp {
+
   from,
   60%,
   75%,
@@ -452,6 +463,7 @@
 }
 
 @keyframes bounceInUp {
+
   from,
   60%,
   75%,
@@ -959,7 +971,8 @@
   animation-duration: 3s;
 }
 
-@media (print), (prefers-reduced-motion: reduce) {
+@media (print),
+(prefers-reduced-motion: reduce) {
   .animated {
     -webkit-animation-duration: 1ms !important;
     animation-duration: 1ms !important;

@@ -27,7 +27,9 @@ controller.showRandomAll = (_, res) => {
   on portfolio.id = file.id_portfolio
   inner join user
   on portfolio.id_user = user.id
-  order by RAND();`;
+  WHERE portfolio.active = 1
+  order by RAND();
+  `;
   console.log(sql);
   connection.query(sql, (err, result) => {
     if (err) throw err;
@@ -42,8 +44,9 @@ controller.showByUserId = ({
   }
 }, res) => {
 
-  let sql = `SELECT id, title, avatar, likes, views, visible, active from portfolio where id_user = ${id_user};`
-
+  let sql = `SELECT id, title, avatar, likes, views, visible, active ` +
+    `  from portfolio where id_user = ${id_user} AND active = 1;`
+  console.log(sql);
   connection.query(sql, (err, result) => {
     if (err) throw err;
     res.send(result);
@@ -64,6 +67,7 @@ controller.insert = ({
   body.date = "CURDATE()";
   /* typo predefinido */
   body.id_type = 5;
+  body.active = 1;
 
   /* ----------------------INSERCION EN LA BBDD ------------------------- */
   connection.query(bbdd.insert("portfolio", objToArray(body)), (err, {
@@ -128,8 +132,6 @@ controller.showHeader = ({
 };
 
 
-
-
 /* NOT USED NOT TESTED */
 controller.countPorfoliosFromUser = ({
   params: {
@@ -145,16 +147,15 @@ controller.countPorfoliosFromUser = ({
     });
 };
 
-/* NOT USED */
 controller.deleteById = ({
   params: {
     id
   },
   res
 }) => {
-  connection.query(bbdd.delete([
-    ["id", id]
-  ]), (e, result) => {
+  let sql = `UPDATE portfolio set active = 0 where id = ${id};`;
+  console.log(sql);
+  connection.query(sql, (e, result) => {
     if (e) throw e;
     res.send(result);
   });

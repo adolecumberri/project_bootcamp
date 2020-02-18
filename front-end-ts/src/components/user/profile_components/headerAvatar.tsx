@@ -1,5 +1,5 @@
 import React from "react";
-import { LOCAL_URL, API_URL } from "src/constants";
+import { API_URL } from "src/constants";
 import { IStore } from "src/interface/IStore";
 import { IAccount } from "src/interface/IAccount";
 import { connect } from "react-redux";
@@ -57,10 +57,6 @@ class HeaderAvatar extends React.PureComponent<TProps, IState> {
           let token = localStorage.getItem("coworkin_token");
           // El token trae expire & value. Value es el token como tal.
           // lo convierto en objeto y saco el value.
-          console.log("token");
-          console.log(token);
-          console.log("json");
-          console.log(json);
           //TODO:
           /* PARCHE porque NEW TOKEN ES STRING A VECES!!!!! */
           if (typeof JSON.parse(token as string).value === "string") {
@@ -165,14 +161,14 @@ class HeaderAvatar extends React.PureComponent<TProps, IState> {
     const avatar = this.props.account?.avatar;
     const id = this.props.account?.id;
     return (
-      <div className="container">
+      <div className="my-container">
         <div className="card text-center  mt-4">
           <div className="card-header">
             <h5 className="col-12 mt-1">Header and Avatar of the portfolio </h5>
           </div>
 
           <div className="row">
-            <div className="card-body  col-4 px-5">
+            <div className="card-body col-12 col-md-4 px-5">
               <div className="form-group col-10 m-auto py-1">
                 <label>Upload avatar</label>
               </div>
@@ -201,7 +197,7 @@ class HeaderAvatar extends React.PureComponent<TProps, IState> {
                   src={
                     avatar
                       ? `${API_URL}/multimedia/user_${id}/avatar/${avatar}`
-                      : `${LOCAL_URL}/images/ico_logo40x40.jpg`
+                      : require("../../../images/ico_logo40x40.jpg")
                   }
                   className="rounded-circle mt-3"
                   id="foto_avatar"
@@ -210,7 +206,7 @@ class HeaderAvatar extends React.PureComponent<TProps, IState> {
               </div>
             </div>
 
-            <div className="card-body  col-8 px-5">
+            <div className="card-body col-12 col-md-8 px-5">
               <div className="form-group col-10 m-auto py-1">
                 <label>Upload Header</label>
               </div>
@@ -240,17 +236,18 @@ class HeaderAvatar extends React.PureComponent<TProps, IState> {
                   className="rounded mt-3"
                 >
                   <img
-                    alt="Header for your profile"
+                    alt="Creando archivito para introducir aqui...."
                     src={
                       header
                         ? `${API_URL}/multimedia/user_${id}/header/${header}`
-                        : `${LOCAL_URL}/images/header.jpeg`
+                        : require("../../../images/ico_logo100x75.jpg")
                     }
                     id="foto_header"
                     style={{
                       maxHeight: "163px",
                       maxWidth: "100%",
-                      objectFit: "contain"
+                      objectFit: "contain",
+                      minHeight: "161px"
                     }}
                   />
                 </div>
