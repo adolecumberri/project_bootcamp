@@ -57,26 +57,26 @@ class register extends React.PureComponent<IProps, IState> {
   }
   onNameChange(e: any) {
     if (e.target.value.length <= 25) {
-      const name = e.target.value;
+      const name = e.target.value.toLowerCase();
       this.setState({ name, error_name: "" });
     }
   }
 
   onPasswordChange(e: any) {
     if (e.target.value.length <= 25) {
-      const password = e.target.value;
+      const password = e.target.value.toLowerCase();
       this.setState({ password, error_pssw: "" });
     }
   }
   onEmailChange(e: any) {
-    if (e.target.value.length <= 25) {
-      const email = e.target.value;
+    if (e.target.value.length <= 45) {
+      const email = e.target.value.toLowerCase();
       this.setState({ email, error_email: "" });
     }
   }
   onPassword_validationChange(e: any) {
     if (e.target.value.length <= 25) {
-      const password_validation = e.target.value;
+      const password_validation = e.target.value.toLowerCase();
       this.setState({ password_validation });
       this.setState({ password_validation, error_pssw: "" });
     }
@@ -90,14 +90,14 @@ class register extends React.PureComponent<IProps, IState> {
     }
   }
   onEmailBlur(e: any) {
-    if (!emailRegex.test(e.target.value)) {
+    if (!emailRegex.test(e.target.value.toLowerCase())) {
       this.setState({
         error_email: "Wron Email format"
       });
     }
   }
   onPasswordBlur(e: any) {
-    if (!psswRegex.test(e.target.value)) {
+    if (!psswRegex.test(e.target.value.toLowerCase())) {
       this.setState({
         error_pssw: "Password needs at least 8 alphanumeric Characters"
       });
@@ -111,7 +111,7 @@ class register extends React.PureComponent<IProps, IState> {
   checkForm() {
     const { password, password_validation } = this.state;
     /* Password validation  */
-    if (password !== password_validation) {
+    if (password.toLowerCase() !== password_validation.toLowerCase()) {
       this.setState({ error_pssw: "Passwords dont match" });
     } else {
       this.ejecutarFetch();
@@ -131,7 +131,11 @@ class register extends React.PureComponent<IProps, IState> {
       myFetch({
         path: "/user",
         method: "POST",
-        obj: { name, password: `sha1('${password}')`, email }
+        obj: {
+          name: name.toLowerCase(),
+          password: `sha1('${password.toLowerCase()}')`,
+          email: email.toLowerCase()
+        }
       }).then(res => {
         //si resp es null, falla el insert porque el name ya existe
         if (res == null) {

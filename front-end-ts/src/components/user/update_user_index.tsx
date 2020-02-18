@@ -17,13 +17,10 @@ class Profile extends React.PureComponent {
     // console.log(LOCAL_URL);
     // console.log(currentLink);
     return (
-      <div
-        style={{ backgroundColor: "#f1f1f1", width: "100vw", height: "92vh" }}
-      >
+      <div style={{ width: "100vw" }}>
         <div
           className="navbar navbar-expand-lg"
           style={{
-            backgroundColor: "#f1f1f1",
             width: "100vw",
             margin: "0px",
             paddingTop: "30px"

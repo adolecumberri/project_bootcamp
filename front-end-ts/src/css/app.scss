@@ -38,26 +38,41 @@ a {
 }
 
 .my-input {
-    padding: .375rem .75rem;
-    display: inline-block;
+    padding: .375rem .75rem !important;
+    display: inline-block !important;
     user-select: none !important;
     outline: none !important;
-    border: 2px solid #1a1b1e;
-    color: #1a1b1e;
-    background-color: #f1f1f1;
+    border: 2px solid #1a1b1e !important;
+    color: #1a1b1e !important;
+    background-color: #f1f1f1 !important;
+    transition-duration: 0.45s;
 }
 
 .my-input:hover,
 .my-input:focus {
-    color: #f1f1f1;
-    transition-duration: 0.45s;
-    background-color: #1a1b1e;
+    color: #f1f1f1 !important;
+    background-color: #1a1b1e !important;
 }
 
 .disabled {
     color: #696969 !important;
     background: #d8cfcf !important;
     border: 2px solid #969696 !important;
+}
+
+
+.my-form-control {
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
 }
 
 .disabled:hover {

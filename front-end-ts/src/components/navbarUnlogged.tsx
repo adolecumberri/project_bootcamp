@@ -68,18 +68,21 @@ class Navbar extends React.PureComponent<IProps, IState> {
               />
               <div className=" navbar-collapse" id="main_navbar">
                 <ul className="navbar-nav my-navbar">
-                  {/* <li className="nav-item active">
-                    <Link to="/main" className="nav-link">
-                      MAIN
-                    </Link>
-                  </li> */}
                   <li className="nav-item active">
-                    <Link to="/explore" className="nav-link">
+                    <Link
+                      to="/explore"
+                      className="nav-link"
+                      onClick={this.navbarClicked}
+                    >
                       EXPLORE
                     </Link>
                   </li>
                   <li className="nav-item active">
-                    <Link to="/artists" className="nav-link">
+                    <Link
+                      to="/artists"
+                      className="nav-link"
+                      onClick={this.navbarClicked}
+                    >
                       ARTISTS
                     </Link>
                   </li>

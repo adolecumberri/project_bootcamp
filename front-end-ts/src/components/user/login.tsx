@@ -44,14 +44,14 @@ class login extends React.PureComponent<TProps, IState> {
   }
 
   onEmailChange(e: any) {
-    if (e.target.value.length <= 25) {
-      const email = e.target.value;
+    if (e.target.value.length <= 45) {
+      const email = e.target.value.toLowerCase();
       this.setState({ email: email, error: "" });
     }
   }
 
   onEmailBlur(e: any) {
-    if (!emailRegex.test(e.target.value)) {
+    if (!emailRegex.test(e.target.value.toLowerCase())) {
       this.setState({
         errorEmail: "Wrong Email Format"
       });
@@ -64,7 +64,7 @@ class login extends React.PureComponent<TProps, IState> {
 
   onPasswordChange(e: any) {
     if (e.target.value.length <= 25) {
-      const password = e.target.value;
+      const password = e.target.value.toLowerCase();
       this.setState({ password: password, error: "" });
     } else {
       this.setState({
@@ -73,7 +73,7 @@ class login extends React.PureComponent<TProps, IState> {
     }
   }
   onPasswordBlur(e: any) {
-    if (!psswRegex.test(e.target.value)) {
+    if (!psswRegex.test(e.target.value.toLowerCase())) {
       this.setState({
         errorPssw: "Password needs at least 8 alphanumeric Characters"
       });
@@ -84,11 +84,17 @@ class login extends React.PureComponent<TProps, IState> {
     const { setAccount } = this.props;
     const { email, password } = this.state;
 
-    if (psswRegex.test(password) && emailRegex.test(email)) {
+    if (
+      psswRegex.test(password.toLowerCase()) &&
+      emailRegex.test(email.toLowerCase())
+    ) {
       myFetch({
         path: "/user/login",
         method: "POST",
-        obj: { email, password: `sha1('${password}')` }
+        obj: {
+          email: email.toLowerCase(),
+          password: `sha1('${password.toLowerCase()}')`
+        }
       }).then(token => {
         console.log(token);
         if (token) {
@@ -126,7 +132,7 @@ class login extends React.PureComponent<TProps, IState> {
                   alt="proyect_bootcamp"
                 />
                 <br />
-                Registro proyect_bootcamp
+                Login proyect_bootcamp
               </h5>
             </div>
 

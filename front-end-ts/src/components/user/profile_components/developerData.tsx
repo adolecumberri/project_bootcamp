@@ -303,17 +303,17 @@ class DeveloperData extends React.PureComponent<TProps, IState> {
                   <input
                     name="name"
                     type="text"
-                    className="form-control text-capitalize"
+                    className="my-form-control my-input text-capitalize"
                     placeholder="Your username? ;)"
                     onBlur={this.checkUserInput}
                     defaultValue={`${name}`}
                   />
                 </div>
-                <div className="form-group col-6 col-md-3">
+                <div className="my-form-group col-6 col-md-3">
                   <label htmlFor="name">Gender</label>
                   <select
                     name="gender"
-                    className="form-control"
+                    className="my-form-control my-input"
                     value={gender ? `${gender.toLowerCase()}` : "DEFAULT"}
                     onChange={e => {
                       let newUser = this.state.user;
@@ -331,18 +331,18 @@ class DeveloperData extends React.PureComponent<TProps, IState> {
                     <option value="female">Female</option>
                   </select>
                 </div>
-                <div className="form-group col-6 col-md-4">
+                <div className="my-form-group col-6 col-md-4">
                   <label>Date</label>
                   <div
-                    className="form-control m-0 p-0 border-0"
+                    className="my-form-control m-0 p-0 border-0"
                     style={{ textAlign: "left" }}
                   >
                     <input
                       id="day-input"
                       type="number"
-                      className=" form-control col-4 float-left my-numeric-input"
+                      className=" form-control col-4 float-left my-input my-numeric-input"
                       placeholder="DD"
-                      value={day ? day : ""}
+                      value={day ? day : undefined}
                       onChange={this.checkDay}
                       onBlur={this.UpdateUserBirth}
                       min="1"
@@ -352,7 +352,7 @@ class DeveloperData extends React.PureComponent<TProps, IState> {
                     <input
                       id="month-input"
                       type="number"
-                      className=" form-control col-4 float-left"
+                      className=" form-control my-input  col-4 float-left"
                       placeholder="MM"
                       value={month}
                       onChange={this.checkMonth}
@@ -363,7 +363,7 @@ class DeveloperData extends React.PureComponent<TProps, IState> {
                     <input
                       id="year-input"
                       type="number"
-                      className=" form-control col-4 float-left"
+                      className=" form-control my-input  col-4 float-left"
                       placeholder="YYYY"
                       value={year}
                       onChange={this.checkYear}
@@ -376,19 +376,19 @@ class DeveloperData extends React.PureComponent<TProps, IState> {
                     />
                   </div>
                 </div>
-                <div className="form-group col-6 col-md-6">
+                <div className="my-form-group col-6 col-md-6">
                   <label htmlFor="country">Country</label>
                   <select
                     id="country"
                     name="country"
-                    className="form-control"
+                    className="my-form-control my-input"
                     onMouseDown={this.selectEvent}
                     onChange={event => {
                       this.selectEvent(event);
                       this.updateUserFromSelect(event);
                     }}
                     onBlur={this.selectEvent}
-                    style={{ position: "absolute", maxWidth: "94%" }}
+                    style={{ maxWidth: "94%" }}
                     value={country ? country : "DEFAULT"}
                   >
                     <option
@@ -407,7 +407,7 @@ class DeveloperData extends React.PureComponent<TProps, IState> {
                     })}
                   </select>
                 </div>
-                <div className="form-group col-6 col-md-6">
+                <div className="my-form-group col-6 col-md-6">
                   {error_city ? (
                     <label className="error">{error_city}</label>
                   ) : (
@@ -417,7 +417,7 @@ class DeveloperData extends React.PureComponent<TProps, IState> {
                   <input
                     name="state"
                     type="text"
-                    className="form-control"
+                    className="my-form-control my-input "
                     placeholder=" City ? <---"
                     onBlur={this.checkCityInput}
                     defaultValue={state ? `${state}` : ""}

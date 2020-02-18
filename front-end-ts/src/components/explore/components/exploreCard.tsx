@@ -23,7 +23,7 @@ class ECard extends React.PureComponent<IProps> {
           <div style={{ height: "200px", overflow: "hidden" }}>
             <img
               alt="card content"
-              src={`${API_URL}/multimedia/user_${id_user}/portfolios/portfolio${id_portfolio}/${avatar}`}
+              src={`${API_URL}/multimedia/user_${id_user}/portfolios/portfolio${id_portfolio}/body/${header}`}
               style={{ width: "100%" }}
               className="border rounded my-2"
             />
@@ -31,7 +31,7 @@ class ECard extends React.PureComponent<IProps> {
           <p className="small pt-2">
             <img
               alt="portfolio stuff"
-              src={`${API_URL}/multimedia/user_${id_user}/portfolios/portfolio${id_portfolio}/body/${header}`}
+              src={`${API_URL}/multimedia/user_${id_user}/portfolios/portfolio${id_portfolio}/${avatar}`}
               className="rounded"
               style={{ maxWidth: "35px", maxHeight: "35px" }}
             />

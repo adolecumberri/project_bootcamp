@@ -97,17 +97,11 @@ class developers extends React.PureComponent<IProps, IState> {
       <div
         className="my-container"
         style={{
-          backgroundColor: "antiquewhite",
           width: "100vw"
         }}
       >
         <div className="row" style={{ margin: "0px" }}>
-          <div
-            className="col-12"
-            style={{
-              backgroundColor: "#f1f1f1"
-            }}
-          >
+          <div className="col-12">
             <HeadDev
               updateNameFilter={this.updateNameFilter}
               updateCountry={this.updateCountryFilter}

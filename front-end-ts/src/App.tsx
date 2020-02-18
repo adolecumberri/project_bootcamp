@@ -65,7 +65,7 @@ class App extends React.PureComponent<TProps> {
           {account && <NavbarLogged />}
           <Switch>
             <Route path="/" exact component={explore} />
-            {/* <Route path="/main" exact component={main} /> */}
+            <Route path="/main" exact component={explore} />
             <Route path="/contact_us" exact component={contact_us} />
             <Route path="/artists" exact component={artists} />
             <Route path="/enterprises" exact component={enterprises} />

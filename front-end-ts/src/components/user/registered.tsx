@@ -66,7 +66,7 @@ class Registered extends React.PureComponent<TProps, IState> {
               }
               id="mi_avatar"
               className="rounded-circle mt-1"
-              style={{ float: "left", height: "5vh" }}
+              style={{ float: "left", height: "5vh", maxWidth: "6vh" }}
             />
             <div className="my-registeredTitle">
               {name} <i className="fa fa-caret-down" aria-hidden="true"></i>

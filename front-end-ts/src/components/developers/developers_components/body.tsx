@@ -70,17 +70,17 @@ class BodyDev extends React.PureComponent<IProps> {
                         height: "120px",
                         overflow: "hidden"
                       }}
-                      className="mb-3 rounded-top"
+                      className="mb-3 rounded-top d-flex justify-content-center"
                     >
                       <img
                         className=""
                         src={
                           user.header !== null
                             ? `${API_URL}/multimedia/user_${user.id}/header/${user.header}`
-                            : `${LOCAL_URL}/images/ico_logo100x75.jpg`
+                            : require("src/images/ico_logo100x75.jpg")
                         }
                         alt={`${user.name}'s header`}
-                        style={{ width: "100%", minHeight: "100%" }}
+                        style={{ minWidth: "45%", minHeight: "100%" }}
                       />
                     </div>
 
@@ -88,7 +88,7 @@ class BodyDev extends React.PureComponent<IProps> {
                       src={
                         user.avatar !== "" && user.avatar !== null
                           ? `${API_URL}/multimedia/user_${user.id}/avatar/${user.avatar}`
-                          : `${LOCAL_URL}/images/ico_logo40x40.jpg`
+                          : require("src/images/ico_logo40x40.jpg")
                       }
                       alt={`${user.name}'s avatar`}
                       style={{

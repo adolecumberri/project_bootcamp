@@ -5,6 +5,7 @@ import { API_URL } from "src/constants";
 interface IProps {
   portfolio_file: IFile;
   id_user: number;
+  presentacion: boolean;
 }
 
 class BodyP extends React.PureComponent<IProps> {
@@ -13,13 +14,15 @@ class BodyP extends React.PureComponent<IProps> {
   render() {
     const id_user = this.props.id_user;
     const { name, id_portfolio } = this.props.portfolio_file;
-
+    const { presentacion } = this.props;
+    console.log("name");
+    console.log(name);
     return (
       <>
         <div className="container">
           <div className="row mb-5">
-            <div className="col-12 col-md-2"></div>
-            <div className=" col-12 col-md-8">
+            <div className={`col-12 ${presentacion ? "" : "col-md-2"} `}></div>
+            <div className={`col-12 ${presentacion ? "" : "col-md-8"}`}>
               {name ? (
                 <img
                   alt="portfolio header"
@@ -31,7 +34,7 @@ class BodyP extends React.PureComponent<IProps> {
                 ""
               )}
             </div>
-            <div className="col-12 col-md-2"></div>
+            <div className={`col-12 ${presentacion ? "" : "col-md-2"}`}></div>
           </div>
         </div>
       </>
