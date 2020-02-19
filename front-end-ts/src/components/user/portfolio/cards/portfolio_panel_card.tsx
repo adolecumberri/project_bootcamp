@@ -43,7 +43,7 @@ class PortfolioCard extends React.PureComponent<IProps, IState> {
                   style={{
                     borderRadius: "5px 5px 0px 0px",
                     maxHeight: "169px",
-                    maxWidth: "169px"
+                    maxWidth: "100%"
                   }}
                 />
                 {/* <i className="" aria-hidden="true"></i> Mostrar cuando hover*/}

@@ -17,7 +17,7 @@ class HeaderP extends React.PureComponent<IProps> {
       <>
         <div className="my-headerTitlePortfolio">
           <div className="col-12 col-md-10 row">
-            <div className="col-12 col-md-2 portfolioHeader">
+            <div className="col-12 col-md-3 portfolioHeader">
               <img
                 alt="portfolio header"
                 src={
@@ -29,7 +29,7 @@ class HeaderP extends React.PureComponent<IProps> {
                 style={{ width: "120px", height: "120px" }}
               />
             </div>
-            <div className="col-12  col-md-10">
+            <div className="col-12  col-md-9">
               <div className="float-left text-left">
                 <div className="info-img-description ">
                   <h3 className="text-capitalize">{title}</h3>
