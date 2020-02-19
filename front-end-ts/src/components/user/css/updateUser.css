@@ -38,6 +38,21 @@
   margin-left: auto;
 }
 
+.parche {
+  margin-left: 38px !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.my-numeric-input :hover {
+  -webkit-appearance: none !important;
+  margin: 0 !important;
+}
+
 my-row {
   width: 100vw;
   margin: 0 !important;

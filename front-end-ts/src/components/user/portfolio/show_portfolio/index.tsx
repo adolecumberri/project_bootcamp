@@ -149,7 +149,7 @@ class ShowPortfolio extends React.PureComponent<TProps, IState> {
             <div className="row">
               <div className="col-12">
                 <BodyP
-                  presentacion={this.props.account?.name ? true : false}
+                  presentacion={this.props.account?.name === "presentacion" ? true : false}
                   id_user={user.id as number}
                   portfolio_file={portfolio_file}
                 />

@@ -41,6 +41,17 @@
   margin: 0px;
 }
 
+.nav-item {
+  -webkit-transition-duration: 1.7s;
+          transition-duration: 1.7s;
+}
+
+.nav-item:hover {
+  background-color: #fff;
+  -webkit-box-shadow: 10px 10px 29px -15px rgba(0, 0, 0, 0.75);
+          box-shadow: 10px 10px 29px -15px rgba(0, 0, 0, 0.75);
+}
+
 .showed {
   display: -webkit-inline-box !important;
   display: -ms-inline-flexbox !important;

@@ -64,7 +64,7 @@ class PortfolioCard extends React.PureComponent<IProps, IState> {
                 style={{ position: "absolute", top: "10px", right: "10px" }}
                 onClick={() => modal(portfolio)}
               >
-                <span>D</span>
+                <span ><img src={require("src/images/bin.svg")} style={{maxWidth: "25px", maxHeight: "25px"}} /></span>
               </div>
             </div>
           </div>

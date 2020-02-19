@@ -56,15 +56,16 @@ class Navbar extends React.PureComponent<IProps, IState> {
             <nav className="navbar navbar-expand navbar-light bg-light ">
               {/* IMG + Nombre */}
               <a className="navbar-brand my-notResp" href="/">
-                <img src={require("../images/ico_logo40x40.jpg")} alt="" />
-                proyect_bootcamp
+                <img src={require("../images/logoCW_1.png")} alt="" />
+                CoworkinGames
               </a>
               {/* IMG resp */}
               <img
-                src={require("../images/ico_logo40x40.jpg")}
+                src={require("../images/logoCW_1.png")}
                 alt=""
                 className="my-resp"
                 onClick={this.displayRespNavbar}
+                style={{ marginRight:"10px"}}
               />
               <div className=" navbar-collapse" id="main_navbar">
                 <ul className="navbar-nav my-navbar">
