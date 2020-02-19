@@ -287,6 +287,7 @@ class DeveloperData extends React.PureComponent<TProps, IState> {
           <div className="card text-center  mt-4">
             <div className="card-header">
               <h5 className="col-12 mt-1">Developer Information</h5>
+              <small>This pago automaticly update your information ;)</small>
             </div>
 
             <div className="card-body">
@@ -380,14 +381,14 @@ class DeveloperData extends React.PureComponent<TProps, IState> {
                   <select
                     id="country"
                     name="country"
-                    className="my-form-control my-input"
+                    className="form-control my-form-control my-input my-select-country"
                     onMouseDown={this.selectEvent}
                     onChange={event => {
                       this.selectEvent(event);
                       this.updateUserFromSelect(event);
                     }}
                     onBlur={this.selectEvent}
-                    style={{ maxWidth: "94%" }}
+                    style={{ position: "absolute", maxWidth: "94%", top: "34px", left: "10px" }}
                     value={country ? country : "DEFAULT"}
                   >
                     <option

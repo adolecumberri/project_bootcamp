@@ -48,29 +48,25 @@ class NavbarLogged extends React.PureComponent<TProps, IState> {
             <nav className="navbar navbar-expand navbar-light bg-light ">
               {/* IMG + Nombre */}
               <a className="navbar-brand my-notResp" href="/">
-                <img src={require("../images/ico_logo40x40.jpg")} alt="" />
-                proyect_bootcamp
+                <img src={require("../images/logoCW_1.png")} alt="" />
+                CoworkinGames
               </a>
               {/* IMG resp */}
               <img
-                src={require("../images/ico_logo40x40.jpg")}
+                src={require("../images/logoCW_1.png")}
                 alt=""
                 className="my-resp"
                 onClick={this.displayRespNavbar}
+                style={{ marginRight:"10px"}}
               />
               <div className=" navbar-collapse" id="main_navbar">
                 <ul className="navbar-nav my-navbar">
-                  {/* <li className="nav-item active">
-                    <Link to="/main" className="nav-link">
-                      MAIN
-                    </Link>
-                  </li> */}
-                  <li className="nav-item active">
+                  <li className="nav-item active rounded">
                     <Link to="/explore" className="nav-link">
                       EXPLORE
                     </Link>
                   </li>
-                  <li className="nav-item active">
+                  <li className="nav-item active rounded">
                     <Link to="/artists" className="nav-link">
                       ARTISTS
                     </Link>
@@ -93,12 +89,12 @@ class NavbarLogged extends React.PureComponent<TProps, IState> {
                   this.state.flagResponsive ? "showed" : "hidden"
                 }`}
               >
-                <li className="nav-item active">
+                <li className="nav-item active rounded">
                   <Link to="/explore" className="nav-link">
                     EXPLORE
                   </Link>
                 </li>
-                <li className="nav-item active">
+                <li className="nav-item active rounded">
                   <Link to="/artists" className="nav-link">
                     ARTISTS
                   </Link>

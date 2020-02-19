@@ -21,8 +21,8 @@ class ChangePassword extends React.PureComponent<IGlobalStateProps, IState> {
     super(props);
 
     this.state = {
-      error_old_pssw: "",
-      error_new_pssw: ""
+      error_old_pssw: "Password needs LETTERS and NUMBERS",
+      error_new_pssw: "Password needs LETTERS and NUMBERS"
     };
     this.newPsswRpt = React.createRef();
     this.newPssw = React.createRef();
@@ -104,13 +104,13 @@ class ChangePassword extends React.PureComponent<IGlobalStateProps, IState> {
                     id="old_passw"
                     name="old_pssw"
                     type="text"
-                    className="form-control"
+                    className="my-input "
                     onBlur={this.checkCurrentPassword}
                     onChange={() => {
                       this.setState({ error_old_pssw: "" });
                     }}
                   />
-                  <small className="form-text text-muted">
+                  <small className="form-text error " style={{fontFamily: "president"}}>
                     {error_old_pssw}
                   </small>
                 </div>
@@ -122,14 +122,16 @@ class ChangePassword extends React.PureComponent<IGlobalStateProps, IState> {
                       </label>
                       <input
                         id="new_pssw"
-                        name="new_pssw"
+                        name="new_pssw parche"
                         type="text"
-                        className="form-control"
+                        className=" my-input "
                         ref={this.newPssw}
                         onBlur={this.changePssw}
                         onKeyDown={this.resetError_new_pssw}
+                       style={{ marginLeft: "38px"}}
                       />
-                      <small className="form-text text-muted">
+
+                      <small className="form-text error" style={{fontFamily: "president"}}>
                         {error_new_pssw}
                       </small>
                     </div>
@@ -141,12 +143,12 @@ class ChangePassword extends React.PureComponent<IGlobalStateProps, IState> {
                         id="new_pssw_rpt"
                         name="new_pssw_rpt"
                         type="text"
-                        className="form-control"
+                        className=" my-input "
                         ref={this.newPsswRpt}
                         onBlur={this.changePssw}
                         onKeyDown={this.resetError_new_pssw}
                       />
-                      <small className="form-text text-muted">
+                      <small className="form-text error" style={{fontFamily: "president"}}>
                         {error_new_pssw}
                       </small>
                     </div>

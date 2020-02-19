@@ -127,11 +127,11 @@ class login extends React.PureComponent<TProps, IState> {
                 id="exampleModalCenterTitle"
               >
                 <img
-                  src={require("../../images/ico_logo100x75.jpg")}
+                  src={require("../../images/logoCW_2.png")}
                   alt="proyect_bootcamp"
                 />
                 <br />
-                Login proyect_bootcamp
+                Login CoworkinGames
               </h5>
             </div>
 

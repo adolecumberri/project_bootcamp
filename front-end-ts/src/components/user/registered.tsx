@@ -39,14 +39,14 @@ class Registered extends React.PureComponent<TProps, IState> {
     const { id, avatar, name } = this.props.account as IAccount;
     return (
       <ul
-        className="navbar-nav mr-5 pr-4 my-userNavbar"
+        className="nav-item navbar-nav mr-5 pr-4 my-userNavbar"
         style={{
           backgroundColor: "#efefef",
           borderRadius: "6%",
           maxHeight: "58px"
         }}
       >
-        <li className="nav-item dropdown">
+        <li className=" dropdown">
           <a
             className="float-left mb-2 nav-link "
             href="/"
@@ -54,9 +54,7 @@ class Registered extends React.PureComponent<TProps, IState> {
             role="button"
             data-toggle="dropdown"
           >
-            {/* avatar
-                      ? `${API_URL}/multimedia/user_${id}/avatar/${avatar}`
-                      : `${LOCAL_URL}/images/ico_logo40x40.jpg` */}
+
             <img
               alt="User Visual Stuff"
               src={

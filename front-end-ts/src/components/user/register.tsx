@@ -178,11 +178,11 @@ class register extends React.PureComponent<IProps, IState> {
                 id="exampleModalCenterTitle"
               >
                 <img
-                  src={require("../../images/ico_logo100x75.jpg")}
+                  src={require("../../images/logoCW_1.png")}
                   alt="proyect_bootcamps"
                 />
                 <br />
-                Project Register
+                CoworkingGames Register
               </h5>
             </div>
             <div className="modal-body mt-3 mb-3">
