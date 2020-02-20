@@ -159,7 +159,7 @@ class login extends React.PureComponent<TProps, IState> {
               <div className="field">
                 <div className="control">
                   <input
-                    type="text"
+                    type="password"
                     name="password"
                     className="input col-12"
                     onChange={this.onPasswordChange}

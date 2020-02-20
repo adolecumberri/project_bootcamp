@@ -228,7 +228,7 @@ class register extends React.PureComponent<IProps, IState> {
               <div className="field">
                 <div className="control">
                   <input
-                    type="text"
+                    type="password"
                     name="password"
                     className="input col-12"
                     onChange={this.onPasswordChange}
@@ -247,7 +247,7 @@ class register extends React.PureComponent<IProps, IState> {
               <div className="field">
                 <div className="control">
                   <input
-                    type="text"
+                    type="password"
                     name="password_validation"
                     className="input col-12"
                     onChange={this.onPassword_validationChange}

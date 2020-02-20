@@ -28,7 +28,8 @@ controller.showRandomAll = (_, res) => {
   inner join user
   on portfolio.id_user = user.id
   WHERE portfolio.active = 1
-  order by RAND();
+  order by RAND()
+  limit 20;
   `;
   connection.query(sql, (err, result) => {
     if (err) throw err;
